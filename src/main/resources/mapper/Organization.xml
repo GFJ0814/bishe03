@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stgj.dao.OrganizationDao">
+    <resultMap id="organizationMap" type="com.stgj.entity.Organization">
+        <id column="org_id" property="orgId"></id>
+        <result column="org_name" property="orgName"></result>
+        <result column="org_admin_teacher" property="orgAdminTeacher"></result>
+        <result column="org_admin" property="orgAdmin"></result>
+        <result column="org_superid" property="orgSuperId"></result>
+        <result column="org_phone" property="orgPhone"></result>
+        <result column="org_logo" property="orgLogo"></result>
+        <result column="org_descrip" property="orgDesciption"></result>
+        <result column="createTime" property="createTime"></result>
+        <result column="modifyTime" property="modifyTime"></result>
+
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        org_id,org_name,org_admin_teacher,org_admin,org_superid,org_phone,org_logo,org_descrip,createtime,modifytime
+    </sql>
+
+    <select id="findById" parameterType="int" resultMap="organizationMap">
+        SELECT <include refid="Base_Column_List"/> FROM  organization
+        WHERE  org_id = #{orgId}
+    </select>
+
+    <select id="findAll" resultMap="organizationMap">
+        SELECT  <include refid="Base_Column_List"/> FROM  organization
+
+    </select>
+
+    <select id="findAllOrgs" resultMap="organizationMap" parameterType="int">
+        SELECT  <include refid="Base_Column_List"/> FROM  organization
+        WHERE org_superid =#{orgSuperId}
+    </select>
+
+    <select id="getAllOrgsAccount" resultType="int">
+        SELECT  count(*) FROM organization
+    </select>
+
+    <delete id="delOrgInfo" parameterType="int">
+        DELETE  FROM organization WHERE  org_id = #{orgId}
+    </delete>
+
+    <insert id="addOrgInfo" parameterType="com.stgj.entity.Organization">
+        INSERT  INTO organization
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orgName != null">
+                org_name,
+            </if>
+            <if test="orgAdmin!=null">
+                org_admin,
+            </if>
+            <if test="orgAdminTeacher!=null">
+                org_admin_teacher,
+            </if>
+            <if test="orgSuperId!=null">
+                org_superid,
+            </if>
+            <if test="orgPhone!=null">
+                org_phone,
+            </if>
+            <if test="orgLogo!=null">
+                org_logo,
+            </if>
+            <if test="orgDesciption!=null">
+                org_descrip,
+            </if>
+            createtime,modifytime
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="orgName != null">
+                #{orgName},
+            </if>
+            <if test="orgAdmin!=null">
+                #{orgAdmin},
+            </if>
+            <if test="orgAdminTeacher!=null">
+                #{orgAdminTeacher},
+            </if>
+            <if test="orgSuperId!=null">
+               #{orgSuperId},
+            </if>
+            <if test="orgPhone!=null">
+                #{orgPhone},
+            </if>
+            <if test="orgLogo!=null">
+                #{orgLogo},
+            </if>
+            <if test="orgDesciption!=null">
+                #{orgDesciption},
+            </if>
+            now(),now()
+        </trim>
+    </insert>
+    <update id="updateOrgInfo" parameterType="com.stgj.entity.Organization">
+       update  organization
+       <set>
+           <if test="orgName!=null">
+               org_name = #{orgName},
+           </if>
+           <if test="orgAdmin!=null">
+               org_admin = #{orgAdmin},
+           </if>
+           <if test="orgAdminTeacher!=null">
+               org_admin_teacher = #{orgAdminTeacher},
+           </if>
+           <if test="orgSuperId!=null">
+               org_superid = #{orgSuperId},
+           </if>
+           <if test="orgPhone!=null">
+               org_phone = #{orgPhone},
+           </if>
+           <if test="orgLogo!=null">
+               org_logo = #{orgLogo},
+           </if>
+           <if test="orgDesciption!=null">
+               org_descrip = #{orgDesciption},
+           </if>
+           <if test="createTime != null">
+               createTime = #{createTime},
+           </if>
+           modifytime = now()
+       </set>
+        where  org_id = #{orgId}
+    </update>
+
+</mapper>

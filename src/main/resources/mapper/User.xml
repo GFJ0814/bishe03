@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stgj.dao.UserDao">
+
+    <resultMap id="userMap" type="com.stgj.entity.User">
+        <id column="user_id" property="userId"></id>
+        <result column="user_name" property="userName"></result>
+        <result column="password" property="userPwd"></result>
+        <result column="accept" property="accept"></result>
+        <result column="createTime" property="createTime"></result>
+        <result column="modifyTime" property="modifyTime"></result>
+    </resultMap>
+    <sql id="Base_Column_List" >
+        user_id, user_name,password,accept,createTime,modifyTime
+    </sql>
+    <select id="findById" parameterType="int" resultMap="userMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM  User where user_id=#{id}
+    </select>
+    <select id="findAll" resultMap="userMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM User
+    </select>
+    <select id="findByUserNameAndPwd" resultMap="userMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM USER
+        WHERE
+        <if test="userName!=null and userName !=''"> user_name =#{userName} </if>
+        <if test="passWord!=null and passWord!=''"> AND  password=#{passWord}</if>
+
+    </select>
+
+    <select id="findByUserName" parameterType="String">
+        SELECT <include refid="Base_Column_List"/> FROM  USER WHERE user_name = #{userName}
+    </select>
+
+    <insert id="addUser" parameterType="com.stgj.entity.User">
+        INSERT  INTO  user (user_id,user_name,password,accept,createTime,modifyTime)
+        VALUES (#{userId},#{userName},#{userPwd},#{accept},now(),now())
+    </insert>
+   <delete id="delUser" parameterType="int" >
+       DELETE  from USER  where user_id = #{id}
+   </delete>
+    <update id="updateUser" parameterType="com.stgj.entity.User">
+       UPDATE  USER
+      <set>
+        <if test="userName!=null">
+            user_name = #{userName},
+        </if>
+        <if test="userPwd!=null">
+          password = #{userPwd},
+        </if>
+        <if test="createTime != null">
+            createTime = #{createTime} ,
+        </if>
+            modifyTime = now()
+      </set>
+       where user_id = #{userId}
+    </update>
+
+    <select id="getUsersCount" resultType="int">
+        SELECT count(*) from USER
+    </select>
+
+
+</mapper>
