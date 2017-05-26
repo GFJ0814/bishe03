@@ -11,5 +11,11 @@ public interface RoleDao {
     //新增角色
     public void saveRole(Role role);
 
+    //删除角色
+    public void delRole(Integer roleId);
+
+    //统计总数
+    public  int getRolesAccount();
+
 
 }

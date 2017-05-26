@@ -12,7 +12,7 @@
         <result column="stu_profession" property="stuProfession"></result>
         <result column="stu_college" property="stuCollege"></result>
         <result column="stu_qq" property="stuQQ"></result>
-        <result column="stu_wechat" property="stuWeChat"></result>
+        <result column="stu_address" property="stuAddress"></result>
         <result column="stu_photo" property="stuPhoto"></result>
         <result column="stu_email" property="stuEmail"></result>
         <result column="stu_hobbies" property="stuHobbies"></result>
@@ -23,7 +23,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        stu_id,user_name,stu_num,stu_name,stu_age,stu_sex,stu_profession,stu_college,stu_wechat,stu_qq,stu_email,stu_photo,stu_hobbies,stu_recommend,stu_phone,createtime,modifytime
+        stu_id,user_name,stu_num,stu_name,stu_age,stu_sex,stu_profession,stu_college,stu_address,stu_qq,stu_email,stu_photo,stu_hobbies,stu_recommend,stu_phone,createtime,modifytime
     </sql>
 
     <select id="findById" parameterType="int" resultMap="studentMap">
@@ -67,8 +67,8 @@
             <if test="stuCollege != null">
                 stu_college,
             </if>
-            <if test="stuWeChat!=null">
-                stu_wechat,
+            <if test="stuAddress!=null">
+                stu_address,
             </if>
             <if test="stuQQ != null">
                 stu_qq,
@@ -112,8 +112,8 @@
             <if test="stuCollege != null">
                 #{stuCollege},
             </if>
-            <if test="stuWeChat!=null">
-                #{stuWeChat},
+            <if test="stuAddress!=null">
+                #{stuAddress},
             </if>
             <if test="stuQQ != null">
                 #{stuQQ},
@@ -161,8 +161,8 @@
             <if test="stuCollege!=null">
                 stu_college=#{stuCollege},
             </if>
-            <if test="stuWeChat!=null">
-                stu_wechat=#{stuWeChat},
+            <if test="stuAddress!=null">
+                stu_address=#{stuAddress},
             </if>
             <if test="stuQQ!=null">
                 stu_qq=#{stuQQ},

@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,4 +67,111 @@
     </div>
 </div>
 </body>
+</html>--%>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>注册页面</title>
+
+    <!-- BOOTSTRAP STYLES-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+</head>
+<body style="background-image:url(assets/img/bg.jpg);">
+<div class="container">
+    <br/>
+    <br/>
+    <div class="row ">
+
+        <div class="col-md-8" >
+
+                    <div class="col-xs-12 col-md-offset-3">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h3 align="center">注册用户信息</h3>
+                            </div>
+                            <div class="panel-body">
+                                <form role="form" action="/user/register" method="post">
+                                    <div class="form-group">
+                                        <label>账号</label>
+                                        <input class="form-control" type="text"  name="userName">
+                                        <p class="help-block"></p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>密码</label>
+                                        <input class="form-control" type="password" name="pwd">
+                                        <p class="help-block"></p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>确认密码 </label>
+                                        <input class="form-control" type="password" name="rePwd">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="font">是否已加入社团或组织 </label>
+                                        <input type="radio" name="accept" value="1">是
+                                        <input type="radio" name="accept" value="0" checked="true">否
+                                    </div>
+                                    <div id="isAccept">
+                                        <div class="form-group" >
+                                            <label>学号</label>
+                                            <input class="form-control" type="text"  name="stuName">
+                                            <p class="help-block"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>姓名</label>
+                                            <input class="form-control" type="text" name="stuNum">
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-danger">注册</button>
+                                        <a href="index.jsp" role="button" class="btn btn-primary">返回</a>
+                                    </div>
+                                </form>
+                            </div>
+                            <br>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+</div>
+</div>
+
+<!-- /. FOOTER  -->
+<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+<!-- JQUERY SCRIPTS -->
+<script src="assets/js/jquery-1.10.2.js"></script>
+<!-- BOOTSTRAP SCRIPTS -->
+<!-- <script src="assets/js/bootstrap.js"></script>
+METISMENU SCRIPTS
+<script src="assets/js/jquery.metisMenu.js"></script>
+CUSTOM SCRIPTS
+<script src="assets/js/custom.js"></script> -->
+<script type="text/javascript">
+    $(document).ready(function(){
+       $("div#isAccept").hide();
+        $(":radio").click(function(){
+            if($(this).val()==1){
+                $("div#isAccept").show();
+            }else{
+                $("div#isAccept").hide();
+            }
+        });
+    });
+</script>
+
+
+</body>
 </html>
+

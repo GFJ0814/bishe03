@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<%--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +30,7 @@
 </head>
 <body>
 <div id="login_wrapper">
-    <%--<div id="left" position="absolute" style="top: 200px;"><img src="img/1.jpg" style="width:200px;height:200px"></div>--%>
+    &lt;%&ndash;<div id="left" position="absolute" style="top: 200px;"><img src="img/1.jpg" style="width:200px;height:200px"></div>&ndash;%&gt;
     <div id="right">
         <h3>组织社团管理系统</h3>
         <form action="/user/login" method="post">
@@ -51,3 +52,66 @@
 </div>
 </body>
 </html>
+--%>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>登录页面</title>
+
+    <!-- BOOTSTRAP STYLES-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+</head>
+<body style="background-image:url(assets/img/bg.jpg);">
+<div class="container">
+    <div class="row text-center " style="padding-top:100px;">
+        <div class="col-md-12">
+            <h2 class="form-heading">高校社团组织管理系统</h2>
+        </div>
+    </div>
+    <div class="row ">
+
+        <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+
+            <div class="panel-body">
+                <form role="form"  action="/user/login" method="post">
+                    <hr />
+                    <h5>输入账号信息登录</h5>
+                    <br />
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
+                        <input type="text" class="form-control" placeholder="用户名 " name="userName" />
+                    </div>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+                        <input type="password" class="form-control"  placeholder="密码"  name="userPwd" />
+                    </div>
+                    <div class="form-group">
+
+                                            <span class="pull-right">
+                                                   <a href="index.html" >忘记密码? </a>
+                                            </span>
+                    </div>
+
+                    <button type="submit" class="btn btn-success ">登录</button>
+                    <hr />
+                    还没注册 ? <a href="register.jsp" >点击这里</a> 或回到 <a href="#">首页</a>
+                </form>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+</body>
+</html>
+

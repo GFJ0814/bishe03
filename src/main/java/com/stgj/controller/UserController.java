@@ -48,7 +48,11 @@ public class UserController {
            session.setAttribute("user",user);
            model.addAttribute("user",user);
            if(user.getAccept().equals("1")){
-               return "managerAdminIndex";
+              // return "managerAdminIndex";
+              Student student=studentService.findByUserName(user.getUserName());
+               model.addAttribute("student",student);
+               request.getSession().setAttribute("stuInfo",student);
+               return "showOneStuInfo";
            }
            return "fontIndex";
        }

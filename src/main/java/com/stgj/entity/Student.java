@@ -16,7 +16,7 @@ public class Student extends BaseEntity{
     private String stuSex;              //性别
     private String stuProfession;       //专业
     private String stuCollege;          //学院
-    private String stuWeChat;           //微信
+    private String stuAddress;           //籍贯
     private String stuQQ;               //QQ号
     private String stuEmail;            //邮箱
     private String stuPhoto;            //照片

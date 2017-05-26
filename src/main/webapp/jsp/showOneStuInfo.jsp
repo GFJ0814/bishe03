@@ -272,7 +272,7 @@
 
             <a href="message-task.html" class="btn btn-info" title="New Message"><b>30 </b><i class="fa fa-envelope-o fa-2x"></i></a>
             <a href="message-task.html" class="btn btn-primary" title="New Task"><b>40 </b><i class="fa fa-bars fa-2x"></i></a>
-            <a href="login.html" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
+            <a href="../index.jsp" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
 
         </div>
     </nav>
@@ -301,10 +301,10 @@
                     <a href="#"><i class="fa fa-desktop "></i>个人中心 <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="panel-tabs.html"><i class="fa fa-toggle-on"></i>查看个人信息</a>
+                            <a href="/stu/findOneStuByUserName"><i class="fa fa-toggle-on"></i>查看个人信息</a>
                         </li>
                         <li>
-                            <a href="notification.html"><i class="fa fa-bell "></i>修改密码</a>
+                            <a href="../jsp/updatePassword.jsp"><i class="fa fa-bell "></i>修改密码</a>
                         </li>
 
 
@@ -402,7 +402,8 @@
                 </div>
             </div>
             <br>
-            <form role="form" action="#" method="">
+            <form role="form" action="/stu/addOrUpdateStuInfo" method="post" enctype="multipart/form-data">
+                <input type="hidden" value="${student.stuId}">
                 <div class="row">
                     <div class="col-md-offset-10 col-md-2"><button name="update" class="btn btn-warning" ><i class="fa fa-edit"></i>编辑</button></div>
 
@@ -459,7 +460,7 @@
                                         </tr>
 
                                         <tr >
-                                            <td><strong>籍贯：</strong><span></span></td>
+                                            <td><strong>籍贯：</strong><span></span>${student.stuAddress}</td>
 
                                         </tr>
                                         <tr>
