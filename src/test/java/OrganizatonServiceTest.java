@@ -17,7 +17,7 @@ public class OrganizatonServiceTest {
 
     @Autowired
     OrganizationService organizationService;
-    @Test
+  /*  @Test
     public void testAddOrgInfo(){
         Organization organization = new Organization();
         organization.setOrgAdmin("郭方军");
@@ -27,7 +27,7 @@ public class OrganizatonServiceTest {
         organization.setOrgPhone("356");
         organizationService.addOrgInfo(organization);
 
-    }
+    }*/
 
     @Test
     public void testFindAllOrgs(){

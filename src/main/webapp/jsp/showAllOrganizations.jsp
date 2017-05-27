@@ -61,13 +61,13 @@
     <title>组织管理</title>
 
     <!-- BOOTSTRAP STYLES-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="../assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="../assets/css/font-awesome.css" rel="stylesheet" />
     <!--CUSTOM BASIC STYLES-->
-    <link href="assets/css/basic.css" rel="stylesheet" />
+    <link href="../assets/css/basic.css" rel="stylesheet" />
     <!--CUSTOM MAIN STYLES-->
-    <link href="assets/css/custom.css" rel="stylesheet" />
+    <link href="../assets/css/custom.css" rel="stylesheet" />
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
@@ -82,7 +82,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">社团组织管理系统</a>
+            <a class="navbar-brand" href="#">社团组织管理系统</a>
         </div>
 
         <div class="header-right">
@@ -102,8 +102,7 @@
                         <img src="assets/img/user.png" class="img-thumbnail" />
 
                         <div class="inner-text" align="center">
-                            <font style="font-size: 21px;font-family: '华文楷体'">早上好，张三</font>
-                            <br />
+                             <br />
                             <small>上次登录 : 昨天晚上 </small>
                         </div>
                     </div>

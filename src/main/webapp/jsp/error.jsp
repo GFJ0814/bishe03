@@ -11,6 +11,6 @@
     <title>错误页</title>
 </head>
 <body>
-<h2>哎呀，服务器错误了!</h2>
+<h2 align="center">哎呀，${errorMsg}</h2>
 </body>
 </html>

@@ -4,7 +4,6 @@ import com.stgj.entity.Student;
 import com.stgj.entity.User;
 import com.stgj.service.StudentService;
 import com.stgj.service.UserService;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -40,15 +39,13 @@ public class UserController {
    }
 
    @RequestMapping("/login")
-   public String login(User user, ModelMap model, HttpServletRequest request){
-       List<User> list= userService.findByUserNameAndPwd(user.getUserName(),user.getUserPwd());
-       if(list!=null&&list.size()>0){
-           user = list.get(0);
+   public String login(User user1, ModelMap model, HttpServletRequest request){
+       user = userService.findUserByName(user1.getUserName());
+       if(user!=null&&user1.getUserPwd().equals(user.getUserPwd())){
            session = request.getSession();
            session.setAttribute("user",user);
            model.addAttribute("user",user);
            if(user.getAccept().equals("1")){
-              // return "managerAdminIndex";
               Student student=studentService.findByUserName(user.getUserName());
                model.addAttribute("student",student);
                request.getSession().setAttribute("stuInfo",student);
@@ -57,7 +54,7 @@ public class UserController {
            return "fontIndex";
        }
        model.addAttribute("result","用户名或密码错误");
-       return"../../index";
+       return"index";
    }
 
    @RequestMapping("/register")
@@ -84,12 +81,6 @@ public class UserController {
        return login(user,model,request);
    }
 
-   //查询所有用户
-   @RequestMapping("findAllUsers")
-   public String findAllUsers(){
-
-       return null;
-   }
 
    //注销当前用户
     @RequestMapping("logOut")
@@ -97,6 +88,33 @@ public class UserController {
      //  request.getSession().setAttribute("user",null);
        request.getSession().invalidate();
        return "fontIndex";
+    }
+
+    //修改密码
+    @RequestMapping("updatePassword")
+    public String updatePassword(@RequestParam("newPasswordPre") String newPasswordPre,
+                                 @RequestParam("newPassword") String newPassword,
+                                 HttpServletRequest request,
+                                 ModelMap model){
+        User user = (User)request.getSession().getAttribute("user");
+        String errorMsg="两次输入的密码不对，修改密码失败";
+        model.addAttribute("errorMsg",errorMsg);
+        if(newPassword==null||newPasswordPre==null){
+            return "error";
+        }
+        if(newPassword!=null&&(!newPassword.equals(newPasswordPre))){
+            return "error";
+        }
+        user.setUserPwd(newPasswordPre);
+        userService.updateUser(user);
+        return "index";
+    }
+
+    @RequestMapping("findAllUsers")
+    public String findAllUsers(ModelMap model){
+        List<User> userList=userService.findAll();
+        model.addAttribute("list",userList);
+        return "showAllUsers";
     }
 
 

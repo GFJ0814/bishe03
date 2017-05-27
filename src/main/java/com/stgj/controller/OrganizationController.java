@@ -15,7 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * Created by acer on 2017/5/7.
@@ -35,7 +34,7 @@ public class OrganizationController {
                 Result<String> result =Util.uploadFile(file,request);
                 if(!result.isSuccess()) {
                     model.addAttribute("errorMsg",result.getErrorMsg());
-                    return "../error";
+                    return "error";
                 }
                 organization.setOrgLogo(result.getData());
             }

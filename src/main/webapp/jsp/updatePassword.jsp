@@ -27,141 +27,12 @@
 </head>
 <body>
 <div id="wrapper">
-    <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.html">社团组织管理系统</a>
-        </div>
-
-        <div class="header-right">
-
-            <a href="message-task.html" class="btn btn-info" title="New Message"><b>30 </b><i class="fa fa-envelope-o fa-2x"></i></a>
-            <a href="message-task.html" class="btn btn-primary" title="New Task"><b>40 </b><i class="fa fa-bars fa-2x"></i></a>
-            <a href="../index.jsp" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
-
-        </div>
+    <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0" id="header">
+        <%@include file="left.jsp"%>
     </nav>
     <!-- /. NAV TOP  -->
-    <nav class="navbar-default navbar-side" role="navigation">
-        <div class="sidebar-collapse">
-            <ul class="nav" id="main-menu">
-                <li>
-                    <div class="user-img-div">
-                        <img src="../assets/img/user.png" class="img-thumbnail" />
-
-                        <div class="inner-text" align="center">
-                            <font style="font-size: 21px;font-family: '华文楷体'">早上好，张三</font>
-                            <br />
-                            <small>上次登录 : 昨天晚上 </small>
-                        </div>
-                    </div>
-
-                </li>
-
-
-                <li>
-                    <a class="active-menu" href="#"><i class="fa fa-dashboard "></i>选项卡</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-desktop "></i>个人中心 <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="/stu/findOneStuByUserName"><i class="fa fa-toggle-on"></i>查看个人信息</a>
-                        </li>
-                        <li>
-                            <a href="updatePassword.jsp"><i class="fa fa-bell "></i>修改密码</a>
-                        </li>
-
-
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-yelp "></i>系统管理<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="index.html"><i class="fa fa-coffee"></i>用户管理</a>
-                        </li>
-                        <li>
-                            <a href="role.html"><i class="fa fa-flash "></i>角色管理</a>
-                        </li>
-                        <li>
-                            <a href="permission.html"><i class="fa fa-key "></i>权限管理</a>
-                        </li>
-
-
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-sitemap "></i>常务管理<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="invoice.html"><i class="fa fa-coffee"></i>资讯管理</a>
-                        </li>
-                        <li>
-                            <a href="newsPublish.html"><i class="fa fa-anchor"></i>发布资讯</a>
-                        </li>
-                        <li>
-                            <a href="pricing.html"><i class="fa fa-flash "></i>资产管理</a>
-                        </li>
-                        <li>
-                            <a href="shenqing.html"><i class="fa fa-key "></i>我的申请</a>
-                        </li>
-                        <li>
-                            <a href="component.html"><i class="fa fa-anchor "></i>我的审批</a>
-                        </li>
-
-
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-bicycle "></i>机构管理<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-
-                        <li>
-                            <a href="form.html"><i class="fa fa-desktop "></i>组织管理 </a>
-                        </li>
-                        <li>
-                            <a href="form-advance.html"><i class="fa fa-code "></i>部门管理</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-bicycle "></i>招新</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-flask "></i>人事管理</a>
-                        </li>
-
-
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-sitemap "></i>排班管理 <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="#"><i class="fa fa-bicycle "></i>课表管理</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-flash"></i>
-                                值班表管理</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-comments-o "></i>调班审批</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-sitemap "></i>调班申请</a>
-                        </li>
-
-                    </ul>
-                </li>
-
-            </ul>
-
-        </div>
-
+    <nav class="navbar-default navbar-side" role="navigation" id="left">
+        <%@include file="menue.jsp"%>
     </nav>
     <!-- /. NAV SIDE  -->
     <div id="page-wrapper">
@@ -176,15 +47,15 @@
                 <div class="col-md-6 col-md-offset-3">
                     <div class="panel panel-info" style="border: 0">
                         <div class="panel-body">
-                            <form role="form">
+                            <form role="form" action="/user/updatePassword" method="post">
                                 <div class="form-group">
                                     <label>新密码</label>
-                                    <input class="form-control" type="password">
+                                    <input class="form-control" type="password"  name="newPassword">
                                     <p class="help-block">6-8位字母、数字、组合</p>
                                 </div>
                                 <div class="form-group">
                                     <label>确认新密码</label>
-                                    <input class="form-control" type="password">
+                                    <input class="form-control" type="password" name="newPasswordPre">
                                     <p class="help-block">6-8位字母、数字、组合</p>
                                 </div>
 
@@ -244,8 +115,7 @@
 <script src="../assets/js/jquery.metisMenu.js"></script>
 <!-- CUSTOM SCRIPTS -->
 <script src="../assets/js/custom.js"></script>
-<!-- myjs -->
-<script src="../assets/myjs/page.js"></script>
+
 
 
 

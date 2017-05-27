@@ -14,7 +14,6 @@ public interface UserService {
 
     List<User> findAll();
 
-    List<User> findByUserNameAndPwd(String userName,String password);
 
     int getUsersAccount();
 
@@ -25,6 +24,8 @@ public interface UserService {
     int resisteruser(User user);
 
     int registerUser(User user,Student student);
+
+    User findUserByName(String userName);
 
 
 }

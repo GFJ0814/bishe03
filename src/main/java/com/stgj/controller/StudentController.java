@@ -5,12 +5,10 @@ import com.stgj.common.Util;
 import com.stgj.entity.Student;
 import com.stgj.entity.User;
 import com.stgj.service.StudentService;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -51,7 +49,7 @@ public class StudentController {
             Result<String> result = Util.uploadFile(file, request);
             if(!result.isSuccess()){
                 model.addAttribute("errorMsg",result.getErrorMsg());
-                return "../error";
+                return "error";
             }
             student1.setStuPhoto(result.getData());
         }

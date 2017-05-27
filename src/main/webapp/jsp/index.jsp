@@ -62,14 +62,14 @@
     <title>登录页面</title>
 
     <!-- BOOTSTRAP STYLES-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="../assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="../assets/css/font-awesome.css" rel="stylesheet" />
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
 </head>
-<body style="background-image:url(assets/img/bg.jpg);">
+<body style="background-image:url(../assets/img/bg.jpg);">
 <div class="container">
     <div class="row text-center " style="padding-top:100px;">
         <div class="col-md-12">
@@ -84,6 +84,7 @@
                 <form role="form"  action="/user/login" method="post">
                     <hr />
                     <h5>输入账号信息登录</h5>
+                    <h4>${result}</h4>
                     <br />
                     <div class="form-group input-group">
                         <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>

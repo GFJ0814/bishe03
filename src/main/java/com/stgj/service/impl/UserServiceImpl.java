@@ -37,9 +37,7 @@ public class UserServiceImpl implements UserService {
         return userDao.findAll();
     }
 
-    public List<User> findByUserNameAndPwd(String userName, String password) {
-        return userDao.findByUserNameAndPwd(userName,password);
-    }
+
 
     public int getUsersAccount() {
         return userDao.getUsersCount();
@@ -67,5 +65,9 @@ public class UserServiceImpl implements UserService {
             studentDao.saveStuInfo(student);
         }
         return 1;
+    }
+
+    public User findUserByName(String userName) {
+        return userDao.findByUserName(userName);
     }
 }

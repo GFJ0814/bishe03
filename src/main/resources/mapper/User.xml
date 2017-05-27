@@ -30,11 +30,9 @@
         FROM USER
         WHERE
         <if test="userName!=null and userName !=''"> user_name =#{userName} </if>
-        <if test="passWord!=null and passWord!=''"> AND  password=#{passWord}</if>
-
     </select>
 
-    <select id="findByUserName" parameterType="String">
+    <select id="findByUserName" parameterType="String" resultMap="userMap">
         SELECT <include refid="Base_Column_List"/> FROM  USER WHERE user_name = #{userName}
     </select>
 

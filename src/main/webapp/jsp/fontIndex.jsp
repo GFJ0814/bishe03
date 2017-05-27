@@ -20,8 +20,8 @@
         <a href="/user/logOut">注销</a>
     </c:when>
     <c:otherwise>
-        <a href="../index.jsp">登录</a>|
-        <a href="/register.jsp">注册</a>
+        <a href="/jsp/index.jsp">登录</a>|
+        <a href="/jsp/register.jsp">注册</a>
     </c:otherwise>
 </c:choose>
 <div style="height: 20px"></div>
