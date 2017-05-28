@@ -2,6 +2,7 @@ package com.stgj.dao;
 
 import com.stgj.entity.Role;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * time:11:33
  * author:GuoFangjun
  */
+@Repository
 public interface RoleDao {
     //新增角色
     public void saveRole(Role role);
@@ -22,6 +24,9 @@ public interface RoleDao {
 
     //分页查询所有
     public List<Role> findAllRoleByPage(@Param("pageStart") Integer pageStart);
+
+    //修改角色信息
+    public void updateRole(Role role);
 
 
 }

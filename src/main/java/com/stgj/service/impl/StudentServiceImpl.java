@@ -6,6 +6,7 @@ import com.stgj.entity.Student;
 import com.stgj.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
  * Created by acer on 2017/4/23.
  */
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class StudentServiceImpl  implements StudentService {
 
     @Autowired

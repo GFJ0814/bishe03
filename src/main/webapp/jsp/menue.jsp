@@ -59,7 +59,7 @@
                     <a href="/user/findAllUsers"><i class="fa fa-coffee"></i>用户管理</a>
                 </li>
                 <li>
-                    <a href="role.html"><i class="fa fa-flash "></i>角色管理</a>
+                    <a href="/role/findAllRoles"><i class="fa fa-flash "></i>角色管理</a>
                 </li>
                 <li>
                     <a href="permission.html"><i class="fa fa-key "></i>权限管理</a>

@@ -8,5 +8,34 @@
       <result column="createtime" property="createTime"></result>
       <result column="modifytime" property="modifyTime"></result>
   </resultMap>
+    <sql id="Base_Column_List">
+        role_id,role_name,createtime,modifytime
+    </sql>
+    <select id="findAllRoleByPage" resultMap="roleMap">
+        SELECT  <include refid="Base_Column_List"/> FROM  role ORDER  by createtime asc
+        limit ${pageStart},5
+    </select>
 
+    <select id="getRolesAccount" resultType="int">
+        SELECT count(*) FROM  role
+    </select>
+
+    <insert id="saveRole" parameterType="com.stgj.entity.Role">
+        INSERT  into role(role_name,createtime,modifytime) VALUES (#{roleName},now(),now())
+    </insert>
+
+    <update id="updateRole" parameterType="com.stgj.entity.Role">
+        update role
+        <set>
+            <if test="roleName!=null">
+                role_name = #{roleName}
+            </if>
+            modifytime = now()
+        </set>
+        WHERE role_id = #{roleId}
+    </update>
+
+    <delete id="delRole" parameterType="int">
+        DELETE  FROM role where role_id = #{roleId}
+    </delete>
 </mapper>
