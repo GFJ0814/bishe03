@@ -88,7 +88,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var="user" items="${userList}">
+                                    <c:forEach var="user" items="${pageResult.list}">
                                         <tr>
                                             <td>${user.userName}</td>
                                             <td>
@@ -102,7 +102,6 @@
                                             <td>
                                                 <button class="btn btn-success" data-toggle="modal"
                                                         data-target="#myModal"><i class="glyphicon glyphicon-plus"></i>分配角色</button>
-                                                <button class="btn btn-danger"><i class="glyphicon glyphicon-home"></i>删除</button>
 
                                             </td>
                                         </tr>
@@ -125,10 +124,10 @@
                 <div class="col-md-offset-8">
 
                     <ul class="pagination">
-                        <li><a href="#">首页</a></li>
-                        <li><a href="#">上一页</a></li>
-                        <li><a href="#">下一页</a></li>
-                        <li><a href="#">尾页</a></li>
+                        <li><a href="/user/findAllUsers?pageNo=1">首页</a></li>
+                        <li><a href="/user/findAllUsers?pageNo=${pageResult.currentPage-1}">上一页</a></li>
+                        <li><a href="/user/findAllUsers?pageNo=${pageResult.currentPage+1}">下一页</a></li>
+                        <li><a href="/user/findAllUsers?pageNo=${pageResult.pageNum}">尾页</a></li>
 
                     </ul>
                 </div>
@@ -180,8 +179,7 @@
 <!-- CUSTOM SCRIPTS -->
 <script src="../assets/js/custom.js"></script>
 <!-- myjs -->
-<script src="../assets/myjs/page.js"></script>
-<script src="../assets/myjs/reference.js"></script>
+
 
 
 </body>

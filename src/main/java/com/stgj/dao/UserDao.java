@@ -66,6 +66,9 @@ public interface UserDao {
      */
     User findByUserName(@Param("userName") String userName);
 
+    List<User> findAllUserByPage(@Param("pageStart") Integer pageStart,@Param("pageEnd") Integer pageEnd);
+
+
 
 
 

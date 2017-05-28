@@ -1,6 +1,9 @@
 package com.stgj.dao;
 
 import com.stgj.entity.Role;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * Created by gfj43958 on 2017/5/12.
@@ -16,6 +19,9 @@ public interface RoleDao {
 
     //统计总数
     public  int getRolesAccount();
+
+    //分页查询所有
+    public List<Role> findAllRoleByPage(@Param("pageStart") Integer pageStart);
 
 
 }

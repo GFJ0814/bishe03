@@ -1,5 +1,6 @@
 package com.stgj.service;
 
+import com.stgj.common.PageResult;
 import com.stgj.entity.Student;
 import com.stgj.entity.User;
 
@@ -26,6 +27,8 @@ public interface UserService {
     int registerUser(User user,Student student);
 
     User findUserByName(String userName);
+
+    List<User> findAllByPage(Integer pageStart,Integer pageEnd);
 
 
 }

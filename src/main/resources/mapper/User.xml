@@ -32,6 +32,13 @@
         <if test="userName!=null and userName !=''"> user_name =#{userName} </if>
     </select>
 
+    <select id="findAllUserByPage" resultMap="userMap">
+        SELECT <include refid="Base_Column_List" /> FROM  USER  ORDER BY createTime DESC
+        limit ${pageStart},5
+    </select>
+
+
+
     <select id="findByUserName" parameterType="String" resultMap="userMap">
         SELECT <include refid="Base_Column_List"/> FROM  USER WHERE user_name = #{userName}
     </select>

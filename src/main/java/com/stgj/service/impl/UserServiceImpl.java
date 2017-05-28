@@ -1,5 +1,6 @@
 package com.stgj.service.impl;
 
+import com.stgj.common.PageResult;
 import com.stgj.dao.StudentDao;
 import com.stgj.dao.UserDao;
 import com.stgj.entity.Student;
@@ -69,5 +70,18 @@ public class UserServiceImpl implements UserService {
 
     public User findUserByName(String userName) {
         return userDao.findByUserName(userName);
+    }
+
+    /**
+     *分页查询所有用户
+     * @param pageStart
+     * @param pageEnd
+     * @return
+     */
+    public List<User> findAllByPage(Integer pageStart,Integer pageEnd) {
+
+        List<User> users=userDao.findAllUserByPage(pageStart,pageEnd);
+
+        return users;
     }
 }
