@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stgj.dao.PermissionDao">
+    <resultMap id="permissionMap" type="com.stgj.entity.Permission">
+        <id column="permission_id" property="permissionId"></id>
+        <result column="permission_name" property="permissionName"></result>
+        <result column="pemission_link" property="permissionLink"></result>
+        <result column="createtime" property="createTime"></result>
+        <result column="modifitime" property="modifyTime"></result>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        permission_id,permission_name,pemission_link,createtime,modifitime
+    </sql>
+
+    <select id="findAllPermissionsByPage"  resultMap="permissionMap">
+        SELECT  <include refid="Base_Column_List"></include> FROM  permission
+        ORDER BY createtime asc limit ${pageStart},5
+    </select>
+
+    <select id="getAllPermissionsAccount" resultType="int">
+        SELECT count(*) from permission
+    </select>
+
+    <insert id="addPermission" parameterType="com.stgj.entity.Permission">
+        INSERT  into permission(permission_name,pemission_link,createtime,modifitime)
+        VALUES (#{permissionName},#{permissionLink},now(),now())
+    </insert>
+
+    <delete id="delPermission" parameterType="int">
+        DELETE  FROM permission where permission_id = #{permissionId}
+    </delete>
+
+    <update id="updatePermission" parameterType="com.stgj.entity.Permission">
+        update permission
+        <set>
+            <if test="permissionName!=null">
+                permission_name = #{permissionName},
+            </if>
+            <if test="permissionLink!=null">
+                pemission_link = #{permissionLink},
+            </if>
+            modifitime = now()
+            where permission_id = #{permissionId}
+        </set>
+    </update>
+
+
+
+</mapper>
