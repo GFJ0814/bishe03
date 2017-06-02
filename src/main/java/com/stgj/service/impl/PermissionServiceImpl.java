@@ -40,4 +40,8 @@ public class PermissionServiceImpl implements PermissionService {
     public List<Permission> findAllPermissionsByPage(Integer pageStart) {
         return permissionDao.findAllPermissionsByPage(pageStart);
     }
+
+    public List<Permission> findAllParentPermissions() {
+        return permissionDao.findAllParentPermissions();
+    }
 }

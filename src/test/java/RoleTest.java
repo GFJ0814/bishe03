@@ -38,4 +38,19 @@ public class RoleTest {
         roleService.delRole(5);
     }
 
+
+    //给角色分配权限
+    @Test
+    public void testFenPeiPermissionByRole(){
+     //1,传进来的参数：用户Id  角色id或者集合  往里面新增
+
+
+    //2.角色Id 权限id集合
+
+
+    //3.用户id  查到角色集合 角色Id  权限集合
+
+    }
+
+
 }

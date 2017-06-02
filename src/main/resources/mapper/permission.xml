@@ -4,6 +4,8 @@
 <mapper namespace="com.stgj.dao.PermissionDao">
     <resultMap id="permissionMap" type="com.stgj.entity.Permission">
         <id column="permission_id" property="permissionId"></id>
+        <result column="permission_parent_id" property="permissionParentId"></result>
+        <result column="permission_parent_name" property="permissionParentName"></result>
         <result column="permission_name" property="permissionName"></result>
         <result column="pemission_link" property="permissionLink"></result>
         <result column="createtime" property="createTime"></result>
@@ -11,7 +13,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        permission_id,permission_name,pemission_link,createtime,modifitime
+        permission_id,permission_parent_id,permission_parent_name,permission_name,pemission_link,createtime,modifitime
     </sql>
 
     <select id="findAllPermissionsByPage"  resultMap="permissionMap">
@@ -19,13 +21,18 @@
         ORDER BY createtime asc limit ${pageStart},5
     </select>
 
+    <select id="findAllParentPermissions" resultMap="permissionMap">
+        SELECT  <include refid="Base_Column_List"></include> FROM permission
+        where permission_parent_id =0
+    </select>
+
     <select id="getAllPermissionsAccount" resultType="int">
         SELECT count(*) from permission
     </select>
 
     <insert id="addPermission" parameterType="com.stgj.entity.Permission">
-        INSERT  into permission(permission_name,pemission_link,createtime,modifitime)
-        VALUES (#{permissionName},#{permissionLink},now(),now())
+        INSERT  into permission(permission_name,permission_parent_id,permission_parent_name,pemission_link,createtime,modifitime)
+        VALUES (#{permissionName},#{permissionParentId},#{permissionParentName},#{permissionLink},now(),now())
     </insert>
 
     <delete id="delPermission" parameterType="int">
@@ -37,6 +44,12 @@
         <set>
             <if test="permissionName!=null">
                 permission_name = #{permissionName},
+            </if>
+            <if  test="permissionParentId!=null">
+                permission_parent_id = #{permissionParentId},
+            </if>
+            <if test="permissionParentName!=null">
+                permission_parent_name = #{permissionParentName},
             </if>
             <if test="permissionLink!=null">
                 pemission_link = #{permissionLink},

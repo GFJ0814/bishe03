@@ -38,6 +38,9 @@
         <property name="maxUploadSize" value="5242440"></property>
     </bean>
 
+    <!-- 解决使用@ResponseBody 的中文乱码。 -->
+    <bean class="com.stgj.common.UTF8StringBeanPostProcessor"></bean>
+
 
 
     <!--  &lt;!&ndash; FreeMarker视图解析器  &ndash;&gt;

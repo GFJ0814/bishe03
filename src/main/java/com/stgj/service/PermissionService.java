@@ -20,4 +20,6 @@ public interface PermissionService {
     int getAllPermissionsAccount();
 
     List<Permission> findAllPermissionsByPage(Integer pageStart);
+
+    List<Permission> findAllParentPermissions();
 }

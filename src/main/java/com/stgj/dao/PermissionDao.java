@@ -29,4 +29,7 @@ public interface PermissionDao {
 
     //统计集合数
     int getAllPermissionsAccount();
+
+    //查询所有的一级权限
+    List<Permission> findAllParentPermissions();
 }

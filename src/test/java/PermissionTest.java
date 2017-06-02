@@ -45,7 +45,7 @@ public class PermissionTest {
     public  void findByPage(){
         List<Permission> permissions = permissionService.findAllPermissionsByPage(0);
         for (Permission p:permissions) {
-            System.out.println(p.getPermissionId()+"-----"+p.getPermissionLink()+"------"+p.getPermissionLink()+"------"+p.getCreateTime()+"-----"+p.getModifyTime());
+            System.out.println(p.getPermissionId()+"-----"+p.getPermissionParentId());
         }
     }
 

@@ -43,6 +43,7 @@
     <!-- /. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation" id="left">
         <%@include file="menue.jsp"%>
+
     </nav>
     <!-- /. NAV SIDE  -->
     <div id="page-wrapper">
@@ -122,7 +123,7 @@
             <div class="row">
                 <div class="col-md-2" >
                     <button class="btn btn-primary" data-toggle="modal"
-                            data-target="#addModal">新增角色</button>
+                            data-target="#myModal">新增角色</button>
                 </div>
             </div>
             <!-- row开始 -->
@@ -150,10 +151,25 @@
                                     data-dismiss="modal" aria-hidden="true">
                                 &times;            </button>
                             <h4 class="modal-title" id="myModalLabel">
-                                给用户分配角色            </h4>
+                                新增角色            </h4>
                         </div>
+                        <form role="role" action="">
                         <div class="modal-body">
-
+                            <div class="form-group">
+                                <label>Enter Email</label>
+                                <input class="form-control" type="text">
+                                <p class="help-block">Help text here.</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Enter Password</label>
+                                <input class="form-control" type="password">
+                                <p class="help-block">Help text here.</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Re Type Password </label>
+                                <input class="form-control" type="password">
+                                <p class="help-block">Help text here.</p>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default"
@@ -161,6 +177,7 @@
                             <button type="button" class="btn btn-primary">
                                 提交更改            </button>
                         </div>
+                        </form>
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal -->
             </div>

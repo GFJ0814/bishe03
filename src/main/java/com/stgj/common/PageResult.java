@@ -14,4 +14,5 @@ public class PageResult<T> {
     List<T> list;
     Integer pageNum;
     Integer currentPage;
+    Object other;
 }

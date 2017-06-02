@@ -27,7 +27,7 @@
                 <img src="../assets/img/user.png" class="img-thumbnail" />
 
                 <div class="inner-text" align="center">
-                    <font style="font-size: 21px;font-family: '华文楷体'">早上好，张三</font>
+                    <font style="font-size: 21px;font-family: '华文楷体'">早上好，${sessionScope.user.userName}</font>
                     <br />
                     <small>上次登录 : 昨天晚上 </small>
                 </div>
@@ -62,7 +62,7 @@
                     <a href="/role/findAllRoles"><i class="fa fa-flash "></i>角色管理</a>
                 </li>
                 <li>
-                    <a href="permission.html"><i class="fa fa-key "></i>权限管理</a>
+                    <a href="/permission/findAllPermissionsByPage"><i class="fa fa-key "></i>权限管理</a>
                 </li>
 
 
