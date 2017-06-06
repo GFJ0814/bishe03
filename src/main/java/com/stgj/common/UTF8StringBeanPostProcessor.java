@@ -14,7 +14,7 @@ import org.springframework.http.converter.StringHttpMessageConverter;
 /**
  * Created by gfj43958 on 2017/6/1.
  * time:17:08
- * author:GuoFangjun
+ * author:GuoFangjun   该类用于ajax传值时候的中文字符处理
  */
 public class UTF8StringBeanPostProcessor  implements BeanPostProcessor {
 

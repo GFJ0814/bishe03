@@ -1,28 +1,26 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: acer
-  Date: 2017/6/2
-  Time: 16:46
+  Date: 2017/6/6
+  Time: 10:24
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>资讯管理</title>
+    <title>我的审批</title>
 
     <!-- BOOTSTRAP STYLES-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/assets/css/font-awesome.css" rel="stylesheet" />
     <!--CUSTOM BASIC STYLES-->
-    <link href="assets/css/basic.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/assets/css/basic.css" rel="stylesheet" />
     <!--CUSTOM MAIN STYLES-->
-    <link href="assets/css/custom.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/assets/css/custom.css" rel="stylesheet" />
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
@@ -34,13 +32,14 @@
     <!-- /. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation" id="left">
         <%@include file="menue.jsp"%>
+
     </nav>
     <!-- /. NAV SIDE  -->
     <div id="page-wrapper">
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="page-head-line">资讯管理</h1>
+                    <h1 class="page-head-line">我的审批</h1>
                 </div>
             </div>
             <br>
@@ -48,16 +47,18 @@
                 <div class="col-md-2">
                     <select class="form-control">
                         <option>-请选择类别-</option>
-                        <option>新闻</option>
-                        <option>活动</option>
+                        <option>评优</option>
+                        <option>调班</option>
+                        <option>请假</option>
+                        <option>竞选</option>
                         <option>其他</option>
                     </select>
                 </div>
                 <div class="col-md-2">
                     <select class="form-control">
                         <option>-请选择状态-</option>
-                        <option>已发布</option>
-                        <option>待审核</option>
+                        <option>审批通过</option>
+                        <option>未审批</option>
                         <option>被驳回</option>
                     </select>
                 </div>
@@ -94,46 +95,65 @@
                                 <table class="table table-bordered">
                                     <tbody>
                                     <tr>
-                                        <th><input type="checkbox" name="">全选</th>
-                                        <th>标题</th>
                                         <th>类别</th>
-                                        <th>状态</th>
-                                        <th>发稿人</th>
-                                        <th>审批意见</th>
+                                        <th>处理人</th>
+                                        <th>描述</th>
+                                        <th>当前状态</th>
+                                        <th>意见</th>
+                                        <th>申请时间</th>
                                         <th>操作</th>
                                     </tr>
                                     </tbody>
                                     <tbody>
-                                    <c:forEach var="news" items="${pageResult.list}">
-                                        <tr>
-                                            <td><input type="checkbox" name=""></td>
-                                            <td>${news.title}</td>
-                                            <td>${news.text_type}</td>
-                                            <td>
-                                                <c:choose>
-                                                    <c:when test="${news.status==0}">
-                                                        未审核
-                                                    </c:when>
-                                                    <c:when test="${news.status==1}">
-                                                        已审核
-                                                    </c:when>
-                                                    <c:when test="${news.status==2}">
-                                                        被驳回
-                                                    </c:when>
-                                                </c:choose>
-                                            </td>
-                                            <td>${news.publisher}</td>
-                                            <td>${news.status_info}</td>
 
-                                            <td>
-                                                <a href="" class="btn btn-primary"><i class="glyphicon glyphicon-headphones">查阅</i></a>
-                                                <a href="" class="btn btn-info"><i class="fa fa-edit"></i>审批</a>
-                                                <a href="" class="btn btn-danger"><i class="glyphicon glyphicon-home"></i>删除</a>
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
+                                    <tr >
+                                        <td>3</td>
+                                        <td>张三</td>
+                                        <td>评优加分</td>
+                                        <td><a href="#" class="btn btn-success">已通过</a></td>
+                                        <td>同意</td>
+                                        <td>90 Orders To Process</td>
 
+                                        <td><a href="" class="btn btn-info"><i class="fa fa-edit"></i>修改</a>
+                                            <a href="" class="btn btn-danger"><i class="glyphicon glyphicon-home"></i>删除</a>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <td>4</td>
+                                        <td>张三</td>
+                                        <td>评优加分</td>
+                                        <td><a href="#" class="btn btn-danger">未审批</a></td>
+                                        <td>无</td>
+                                        <td>100$ Pending Payment</td>
 
+                                        <td><a href="" class="btn btn-info"><i class="fa fa-edit"></i>修改</a>
+                                            <a href="" class="btn btn-danger"><i class="glyphicon glyphicon-home"></i>删除</a>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <td>5</td>
+                                        <td>张三</td>
+                                        <td>评优加分</td>
+                                        <td><a href="#" class="btn btn-warning">被驳回</a></td>
+                                        <td>名额有限，再努力</td>
+                                        <td>200 Messages To Reply</td>
+
+                                        <td><a href="" class="btn btn-info"><i class="fa fa-edit"></i>修改</a>
+                                            <a href="" class="btn btn-danger"><i class="glyphicon glyphicon-home"></i>删除</a>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <td>6</td>
+                                        <td>张三</td>
+                                        <td>评优加分</td>
+                                        <td><a href="#" class="btn btn-warning">被驳回</a></td>
+                                        <td>名额有限，再努力</td>
+                                        <td>90 Orders To Process</td>
+
+                                        <td><a href="" class="btn btn-info"><i class="fa fa-edit"></i>修改</a>
+                                            <a href="" class="btn btn-danger"><i class="glyphicon glyphicon-home"></i>删除</a>
+                                        </td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -144,14 +164,14 @@
                     <!-- 表格结束 -->
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-1">
-                    <a href="" class="btn btn-success">一键通过</a>
-                </div>
-                <div class="col-md-1">
-                    <a href="" class="btn btn-danger">一键删除</a>
-                </div>
-            </div>
+            <!-- row结束 -->
+            <!--  <div class="row">
+                   <div class="col-md-2" >
+                    <button class="btn btn-primary" data-toggle="modal"
+                                               data-target="#addModal">我要申请</button>
+                   </div>
+             </div> -->
+            <!-- row开始 -->
             <div class="row">
                 <div class="col-md-offset-8">
 
@@ -247,18 +267,17 @@
 <!-- /. FOOTER  -->
 <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
 <!-- JQUERY SCRIPTS -->
-<script src="assets/js/jquery-1.10.2.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/jquery-1.10.2.js"></script>
 <!-- BOOTSTRAP SCRIPTS -->
-<script src="assets/js/bootstrap.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/bootstrap.js"></script>
 <!-- METISMENU SCRIPTS -->
-<script src="assets/js/jquery.metisMenu.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/jquery.metisMenu.js"></script>
 <!-- CUSTOM SCRIPTS -->
-<script src="assets/js/custom.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
 <!-- myjs -->
-
+<script src="${pageContext.request.contextPath}/assets/myjs/page.js"></script>
 
 
 
 </body>
 </html>
-

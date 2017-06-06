@@ -72,19 +72,19 @@
             <a href="#"><i class="fa fa-sitemap "></i>常务管理<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
                 <li>
-                    <a href="invoice.html"><i class="fa fa-coffee"></i>资讯管理</a>
+                    <a href="/news/findAllNewsByPage"><i class="fa fa-coffee"></i>资讯管理</a>
                 </li>
                 <li>
-                    <a href="newsPublish.html"><i class="fa fa-anchor"></i>发布资讯</a>
+                    <a href="../jsp/newsPublish.jsp"><i class="fa fa-anchor"></i>发布资讯</a>
                 </li>
                 <li>
-                    <a href="pricing.html"><i class="fa fa-flash "></i>资产管理</a>
+                    <a href="/asset/showAllAssets"><i class="fa fa-flash "></i>资产管理</a>
                 </li>
                 <li>
-                    <a href="shenqing.html"><i class="fa fa-key "></i>我的申请</a>
+                    <a href="/shenqing/showAllShenqings"><i class="fa fa-key "></i>我的申请</a>
                 </li>
                 <li>
-                    <a href="component.html"><i class="fa fa-anchor "></i>我的审批</a>
+                    <a href="/shenpi/findAllShenpi"><i class="fa fa-anchor "></i>我的审批</a>
                 </li>
 
 
