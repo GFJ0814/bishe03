@@ -1,5 +1,7 @@
 package com.stgj.controller;
 
+import com.stgj.common.PageResult;
+import com.stgj.entity.Apply;
 import com.stgj.service.ApplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,8 +32,14 @@ public class ApplyController {
         if (pageNo <= 0) {
             pageNo = 1;
         }
-
+        PageResult<Apply> pageResult =  applyService.getPageResult(pageNo);
+        model.addAttribute("pageResult",pageResult);
         return "showAllShenqing";
+    }
+
+    @RequestMapping("addApply")
+    public String  addApply(){
+        return "";
     }
 
 }
