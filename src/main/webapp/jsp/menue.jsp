@@ -95,7 +95,7 @@
             <ul class="nav nav-second-level">
 
                 <li>
-                    <a href="form.html"><i class="fa fa-desktop "></i>组织管理 </a>
+                    <a href="/organization/findAllOrgs"><i class="fa fa-desktop "></i>组织管理 </a>
                 </li>
                 <li>
                     <a href="form-advance.html"><i class="fa fa-code "></i>部门管理</a>

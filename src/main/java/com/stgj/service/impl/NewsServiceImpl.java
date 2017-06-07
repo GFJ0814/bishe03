@@ -1,7 +1,8 @@
-package com.stgj.service;
+package com.stgj.service.impl;
 
 import com.stgj.dao.NewsDao;
 import com.stgj.entity.News;
+import com.stgj.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +16,7 @@ import java.util.List;
  */
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class NewsServiceImpl implements  NewsService {
+public class NewsServiceImpl implements NewsService {
 
     @Autowired
     NewsDao newsDao;

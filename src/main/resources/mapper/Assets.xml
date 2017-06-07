@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stgj.dao.AssetsDao">
+    <sql id="Base_Column_List">
+        assets_id,assets_name,assets_logo,location,status,amount,user_id,register_name,createTime,modifyTime
+    </sql>
+    <select id="findAllByPage" resultType="com.stgj.entity.Assets">
+        SELECT <include refid="Base_Column_List"/> FROM assets
+        ORDER BY  createTime limit ${pageStart},10
+    </select>
+
+    <select id="getAllAssetsCount" resultType="int">
+        SELECT  count(*) FROM assets
+     </select>
+
+    <select id="findByName"  resultType="com.stgj.entity.Assets">
+       SELECT  <include refid="Base_Column_List"></include>
+        FROM  assets WHERE assets_name LIKE '%#{name}%' limit ${pageStart},10
+    </select>
+
+    <delete id="deleAssets">
+        DELETE FROM assets where assets_id = ${assetsId}
+    </delete>
+
+    <update id="updateAssets" parameterType="com.stgj.entity.Assets">
+        UPDATE assets
+        <set>
+            <if test="assets_name!=null">
+                assets_name = #{assets_name},
+            </if>
+            <if test="assets_logo!=null">
+                assets_logo = #{assets_logo},
+            </if>
+            <if test="location!=null">
+                location = #{location},
+            </if>
+            <if test="status!=null">
+                status = #{status},
+            </if>
+            <if test="amount!=null">
+                amount = #{amount},
+            </if>
+            <if test="user_id!=null">
+                user_id = #{user_id},
+            </if>
+            <if test="register_name">
+                register_name = #{register_name},
+            </if>
+            modifyTime = now()
+            where assets_id = #{assets_id}
+        </set>
+    </update>
+
+    <insert id="addAssets" parameterType="com.stgj.entity.Assets">
+        INSERT  INTO assets(assets_name,assets_logo,location,status,amount,user_id,register_name,createTime,modifyTime)
+        VALUES (#{assets_name},#{assets_logo},#{location},#{status},#{amount},#{user_id},#{register_name},now(),now())
+    </insert>
+
+
+</mapper>

@@ -16,4 +16,5 @@ public class Organization extends BaseEntity{
     private String orgPhone;        //联系电话
     private String orgLogo;         //组织logo
     private String orgDesciption;   //组织简介
+    private String orgLocation;     //组织办公地点
 }

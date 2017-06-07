@@ -27,138 +27,12 @@
 </head>
 <body>
 <div id="wrapper">
-    <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.html">社团组织管理系统</a>
-        </div>
-
-        <div class="header-right">
-
-            <a href="message-task.html" class="btn btn-info" title="New Message"><b>30 </b><i class="fa fa-envelope-o fa-2x"></i></a>
-            <a href="message-task.html" class="btn btn-primary" title="New Task"><b>40 </b><i class="fa fa-bars fa-2x"></i></a>
-            <a href="login.html" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
-
-        </div>
+    <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0" id="header">
+        <%@include file="left.jsp"%>
     </nav>
     <!-- /. NAV TOP  -->
-    <nav class="navbar-default navbar-side" role="navigation">
-        <div class="sidebar-collapse">
-            <ul class="nav" id="main-menu">
-                <li>
-                    <div class="user-img-div">
-                        <img src="assets/img/user.png" class="img-thumbnail" />
-
-                        <div class="inner-text" align="center">
-                            <font style="font-size: 21px;font-family: '华文楷体'">早上好，张三</font>
-                            <br />
-                            <small>上次登录 : 昨天晚上 </small>
-                        </div>
-                    </div>
-
-                </li>
-
-
-                <li>
-                    <a class="active-menu" href="#"><i class="fa fa-dashboard "></i>选项卡</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-desktop "></i>个人中心 <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="panel-tabs.html"><i class="fa fa-toggle-on"></i>查看个人信息</a>
-                        </li>
-                        <li>
-                            <a href="notification.html"><i class="fa fa-bell "></i>修改密码</a>
-                        </li>
-
-
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-yelp "></i>系统管理<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="index.html"><i class="fa fa-coffee"></i>用户管理</a>
-                        </li>
-                        <li>
-                            <a href="role.html"><i class="fa fa-flash "></i>角色管理</a>
-                        </li>
-                        <li>
-                            <a href="permission.html"><i class="fa fa-key "></i>权限管理</a>
-                        </li>
-
-
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-sitemap "></i>常务管理<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="invoice.html"><i class="fa fa-coffee"></i>资讯管理</a>
-                        </li>
-                        <li>
-                            <a href="pricing.html"><i class="fa fa-flash "></i>资产管理</a>
-                        </li>
-                        <li>
-                            <a href="component.html"><i class="fa fa-key "></i>我的申请</a>
-                        </li>
-                        <li>
-                            <a href="component.html"><i class="fa fa-anchor "></i>我的审批</a>
-                        </li>
-
-
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-bicycle "></i>机构管理<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-
-                        <li>
-                            <a href="form.html"><i class="fa fa-desktop "></i>组织管理 </a>
-                        </li>
-                        <li>
-                            <a href="form-advance.html"><i class="fa fa-code "></i>部门管理</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-bicycle "></i>招新</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-flask "></i>人事管理</a>
-                        </li>
-
-
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-sitemap "></i>排班管理 <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="#"><i class="fa fa-bicycle "></i>课表管理</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-flash"></i>
-                                值班表管理</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-comments-o "></i>调班审批</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-sitemap "></i>调班申请</a>
-                        </li>
-
-
-                    </ul>
-                </li>
-
-            </ul>
-
-        </div>
+    <nav class="navbar-default navbar-side" role="navigation" id="left">
+        <%@include file="menue.jsp"%>
 
     </nav>
     <!-- /. NAV SIDE  -->
@@ -302,30 +176,7 @@
 
             </div>
             <!-- row结束 -->
-            <!-- 修改模态框开始 -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog"    aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close"
-                                    data-dismiss="modal" aria-hidden="true">
-                                &times;            </button>
-                            <h4 class="modal-title" id="myModalLabel">
-                                给用户分配角色            </h4>
-                        </div>
-                        <div class="modal-body">
 
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default"
-                                    data-dismiss="modal">关闭            </button>
-                            <button type="button" class="btn btn-primary">
-                                提交更改            </button>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal -->
-            </div>
-            <!-- 修改模态框结束 -->
             <!-- 新增模态框开始 -->
             <div class="modal fade" id="addModal" tabindex="-1" role="dialog"    aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -334,8 +185,8 @@
                             <button type="button" class="close"
                                     data-dismiss="modal" aria-hidden="true">
                                 &times;            </button>
-                            <h4 class="modal-title" id="myModalLabel">
-                                添加申请            </h4>
+                            <h4 class="modal-title" id="myModalLabe2">
+                                添加申请          </h4>
                         </div>
                         <div class="modal-body">
                             <form role="form">

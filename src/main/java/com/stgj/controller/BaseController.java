@@ -16,7 +16,7 @@ public class BaseController {
     public final boolean SUCCESS = true;
     public final boolean FAILURE = false;
 
-    protected HttpServletRequest request;
+    /*protected HttpServletRequest request;
     protected HttpServletResponse response;
     protected HttpSession session;
 
@@ -25,6 +25,6 @@ public class BaseController {
         this.request = request;
         this.response = response;
         this.session = request.getSession();
-    }
+    }*/
 
 }

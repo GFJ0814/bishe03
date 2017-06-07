@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stgj.dao.ApplyDao">
+     <sql id="Base_Column_List">
+         apply_id,apply_type,apply_more,applyer_id,applyer_name,check_status,check_info,createTime,modifyTime
+     </sql>
+     <select id="findAllByPage" resultType="com.stgj.entity.Apply">
+         SELECT  <include refid="Base_Column_List"></include>
+         FROM  apply limit ${pageStart},10
+     </select>
+    <select id="getAllApplyAccount" resultType="int">
+        SELECT count(*) FROM  apply
+    </select>
+   <update id="updateApply" parameterType="com.stgj.entity.Apply">
+       update apply
+       <set>
+           <if test="apply_type!=null">
+               apply_type = #{apply_type},
+           </if>
+           <if test="apply_more">
+               apply_more = #{apply_more},
+           </if>
+           <if test="applyer_id!=null">
+               applyer_id = #{applyer_id},
+           </if>
+           <if test="applyer_name!=null">
+               applyer_name = #{applyer_name},
+           </if>
+           <if test="check_status!=null">
+               check_status = #{check_status},
+           </if>
+           <if test="check_info!=null">
+               check_info = #{check_info},
+           </if>
+           modifyTime = now()
+           where apply_id = #{apply_id}
+       </set>
+   </update>
+
+    <delete id="delApply" parameterType="int">
+        DELETE  FROM  apply where apply_id = #{apply_id}
+    </delete>
+
+    <insert id="addApply" parameterType="com.stgj.entity.Apply">
+        INSERT  INTO  apply (apply_type,apply_more,applyer_id,applyer_name,check_status,check_info,createTime,modifyTime)
+        VALUES (#{apply_type},#{apply_more},#{applyer_id},#{applyer_name},#{check_status},#{check_info},now(),now())
+    </insert>
+</mapper>

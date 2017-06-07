@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -45,25 +46,19 @@
             </div>
             <br>
             <div class="row ">
+                <form action="/asset/showAllAssets" method="post">
+                    <div class="col-md-6 col-md-offset-3">
+                        <input class="form-control" type="text" name="name" placeholder="输入资产名称">
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i>查询</button>
+                    </div>
+                </form>
 
-
-                <div class="col-md-6 col-md-offset-3">
-                    <input class="form-control" type="text" name="findName" placeholder="输入资产名称">
-                </div>
-
-                <div class="col-md-3">
-                    <button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i>查询</button>
-                </div>
                 <br>
 
             </div>
             <hr class="color:red">
-            <!-- <div class="row">
-                <div class="col-md-offset-9">
-                    <button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i>查询</button>
-                </div>
-            </div> -->
-            <!-- row开始 -->
             <div class="row">
                 <div class="col-md-12">
                     <!-- 表格开始 -->
@@ -84,29 +79,19 @@
                                     </tbody>
                                     <tbody>
 
-                                    <tr >
-                                        <td>3</td>
-                                        <td align="center" valign="center">显示器</td>
-                                        <td><img src="${pageContext.request.contextPath}/assets/img/portfolio/d.jpg" style="width: 100px;height: 100px;"></td>
-                                        <td>5台</td>
-                                        <td>办公室</td>
-                                        <td>诸葛亮</td>
-                                        <td><a href="" class="btn btn-info"><i class="fa fa-edit"></i>修改</a>
-                                            <a href="" class="btn btn-danger"><i class="glyphicon glyphicon-home"></i>删除</a>
-                                        </td>
-                                    </tr>
-                                    <tr >
-                                        <td>4</td>
-                                        <td>主机</td>
-                                        <td><img src="${pageContext.request.contextPath}/assets/img/portfolio/d.jpg" style="width: 100px;height: 100px;"></td>
-                                        <td>2台</td>
-                                        <td>办公室</td>
-                                        <td>诸葛亮</td>
-                                        <td><a href="" class="btn btn-info"><i class="fa fa-edit"></i>修改</a>
-                                            <a href="" class="btn btn-danger"><i class="glyphicon glyphicon-home"></i>删除</a>
-                                        </td>
-                                    </tr>
-
+                                        <c:forEach var="asset" items="${pageResult.list}">
+                                            <tr >
+                                                <td>${asset.assets_id}</td>
+                                                <td align="center" valign="center">${asset.assets_name}</td>
+                                                <td><img src="${pageContext.request.contextPath}${asset.assets_logo}" style="width: 100px;height: 100px;"></td>
+                                                <td>${asset.amount}台</td>
+                                                <td>${asset.location}</td>
+                                                <td>${asset.register_name}</td>
+                                                <td><button id="update" class="btn btn-info" onclick="update(${asset.assets_id},this)"><i class="fa fa-edit"></i>修改</button>
+                                                    <a href="/asset/delAsset?asset_id=${asset.assets_id}" class="btn btn-danger"><i class="glyphicon glyphicon-home"></i>删除</a>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
 
                                     </tbody>
                                 </table>
@@ -121,8 +106,8 @@
             <!-- row结束 -->
             <div class="row">
                 <div class="col-md-2" >
-                    <button class="btn btn-primary" data-toggle="modal"
-                            data-target="#addModal">添加资产</button>
+                    <button id="add" onclick="add()" class="btn btn-primary" data-toggle="modal"
+                            data-target="#addModal">新增资产</button>
                 </div>
             </div>
             <!-- row开始 -->
@@ -130,40 +115,17 @@
                 <div class="col-md-offset-8">
 
                     <ul class="pagination">
-                        <li><a href="#">首页</a></li>
-                        <li><a href="#">上一页</a></li>
-                        <li><a href="#">下一页</a></li>
-                        <li><a href="#">尾页</a></li>
+                        <li><a href="/asset/showAllAssets?name=${pageResult.other}">首页</a></li>
+                        <li><a href="/asset/showAllAssets?pageNo=${pageResult.currentPage-1}&name=${pageResult.other}">上一页</a></li>
+                        <li><a href="/asset/showAllAssets?pageNo=${pageResult.currentPage+1}&name=${pageResult.other}">下一页</a></li>
+                        <li><a href="/asset/showAllAssets?pageNo=${pageResult.pageNum}&name=${pageResult.other}">尾页</a></li>
 
                     </ul>
                 </div>
 
             </div>
             <!-- row结束 -->
-            <!-- 修改模态框开始 -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog"    aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close"
-                                    data-dismiss="modal" aria-hidden="true">
-                                &times;            </button>
-                            <h4 class="modal-title" id="myModalLabel">
-                                给用户分配角色            </h4>
-                        </div>
-                        <div class="modal-body">
 
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default"
-                                    data-dismiss="modal">关闭            </button>
-                            <button type="button" class="btn btn-primary">
-                                提交更改            </button>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal -->
-            </div>
-            <!-- 修改模态框结束 -->
             <!-- 新增模态框开始 -->
             <div class="modal fade" id="addModal" tabindex="-1" role="dialog"    aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -173,28 +135,29 @@
                                     data-dismiss="modal" aria-hidden="true">
                                 &times;            </button>
                             <h4 class="modal-title" id="myModalLabe2">
-                                添加申请            </h4>
+                                添加资产            </h4>
                         </div>
                         <div class="modal-body">
-                            <form role="form">
 
+                            <form role="form" action="/asset/addAssets" method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="assets_id" id="assets_id">
                                 <div class="form-group">
-                                    <label>申请类别</label>
-                                    <select class="form-control">
-                                        <option>-请选择-</option>
-                                        <option>调班</option>
-                                        <option>请假</option>
-                                        <option>评优</option>
-                                    </select>
+                                    <label>名称</label>
+                                    <input type="text" class="form-control" name="assets_name" id="assets_name">
                                 </div>
-
                                 <div class="form-group">
-                                    <label>描述</label>
-                                    <input class="form-control" type="text">
-                                    <p class="help-block">简要描述申请原因</p>
+                                    <label>图像</label>
+                                    <input type="file" class="form-control" name="file">
                                 </div>
+                                <div class="form-group">
+                                    <label>数量</label>
+                                    <input type="text" class="form-control" name="amount" id="amount">
+                                </div>
+                                <div class="form-group">
+                                    <label>放置位置</label>
+                                    <input class="form-control" type="text" name="location" id="location">
 
-
+                                </div>
                                 <button type="submit" class="btn btn-danger">提交</button>
                                 <button type="reset" class="btn btn-info">重置</button>
 
@@ -235,7 +198,36 @@
         $("th").css("text-align","center");
         $("td").css("text-align","center");
         $("td").css("line-height","100px");
+
     })
+
+    function update(asset_id,element){
+
+        $("#myModalLabe2").text("修改资产");
+        //获取值填入：
+        var otr = $(element).parents("tr");
+        var asset_name = otr.find("td:eq(1)").text();
+        var asset_account = otr.find("td:eq(3)").text();
+        var account = asset_account.substring(0,asset_account.length-1);
+        var location = otr.find("td:eq(4)").text();
+
+        $("#assets_id").val(asset_id);
+        $("#assets_name").val(asset_name);
+        $("#amount").val(account);
+        $("#location").val(location);
+
+        $("#addModal").modal("show");
+
+
+
+    }
+
+    function  add() {
+        $("#asset_id").val("");
+        $("#assets_name").val("");
+        $("#amount").val("");
+        $("#location").val("");
+    }
 </script>
 
 
