@@ -20,7 +20,7 @@ import java.util.List;
  * Created by acer on 2017/5/7.
  */
 @Controller
-@RequestMapping("/organization")
+@RequestMapping("organization")
 public class OrganizationController {
 
     @Autowired
@@ -47,7 +47,7 @@ public class OrganizationController {
         return findAllOrgs(model);
     }
 
-    @RequestMapping("/findAllOrgs")
+    @RequestMapping("findAllOrgs")
     public String findAllOrgs(ModelMap model){
         List<Organization> organizationList =organizationService.findAll();
         model.addAttribute("orgList",organizationList);

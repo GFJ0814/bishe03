@@ -4,12 +4,16 @@
 <mapper namespace="com.stgj.dao.OrganizationDao">
     <resultMap id="organizationMap" type="com.stgj.entity.Organization">
         <id column="org_id" property="orgId"></id>
-        <result column="org_name" property="orgName"></result>
+        <result column="org_type" property="orgType"></result>
+        <result column="org_simple_name" property="orgSimpleName"></result>
+        <result column="org_full_name" property="orgFullName"></result>
         <result column="org_admin_teacher" property="orgAdminTeacher"></result>
+        <result column="org_admin_num" property="orgAdminNum"></result>
         <result column="org_admin" property="orgAdmin"></result>
         <result column="org_superid" property="orgSuperId"></result>
         <result column="org_phone" property="orgPhone"></result>
         <result column="org_logo" property="orgLogo"></result>
+        <result column="org_location" property=""></result>
         <result column="org_descrip" property="orgDesciption"></result>
         <result column="createTime" property="createTime"></result>
         <result column="modifyTime" property="modifyTime"></result>
@@ -17,7 +21,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        org_id,org_name,org_admin_teacher,org_admin,org_superid,org_phone,org_logo,org_descrip,createtime,modifytime
+        org_id,org_type,org_simple_name,org_full_name,org_admin_teacher,org_admin_num,org_admin,org_superid,org_phone,org_logo,org_location,org_descrip,createtime,modifytime
     </sql>
 
     <select id="findById" parameterType="int" resultMap="organizationMap">
@@ -25,14 +29,15 @@
         WHERE  org_id = #{orgId}
     </select>
 
-    <select id="findAll" resultMap="organizationMap">
+    <select id="findAllByPage" resultMap="organizationMap" parameterType="int">
         SELECT  <include refid="Base_Column_List"/> FROM  organization
+        limit ${pageStart},10
 
     </select>
 
-    <select id="findAllOrgs" resultMap="organizationMap" parameterType="int">
+    <select id="findAllOrgs" resultMap="organizationMap" >
         SELECT  <include refid="Base_Column_List"/> FROM  organization
-        WHERE org_superid =#{orgSuperId}
+        WHERE org_superid = 0
     </select>
 
     <select id="getAllOrgsAccount" resultType="int">
@@ -44,55 +49,8 @@
     </delete>
 
     <insert id="addOrgInfo" parameterType="com.stgj.entity.Organization">
-        INSERT  INTO organization
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="orgName != null">
-                org_name,
-            </if>
-            <if test="orgAdmin!=null">
-                org_admin,
-            </if>
-            <if test="orgAdminTeacher!=null">
-                org_admin_teacher,
-            </if>
-            <if test="orgSuperId!=null">
-                org_superid,
-            </if>
-            <if test="orgPhone!=null">
-                org_phone,
-            </if>
-            <if test="orgLogo!=null">
-                org_logo,
-            </if>
-            <if test="orgDesciption!=null">
-                org_descrip,
-            </if>
-            createtime,modifytime
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="orgName != null">
-                #{orgName},
-            </if>
-            <if test="orgAdmin!=null">
-                #{orgAdmin},
-            </if>
-            <if test="orgAdminTeacher!=null">
-                #{orgAdminTeacher},
-            </if>
-            <if test="orgSuperId!=null">
-               #{orgSuperId},
-            </if>
-            <if test="orgPhone!=null">
-                #{orgPhone},
-            </if>
-            <if test="orgLogo!=null">
-                #{orgLogo},
-            </if>
-            <if test="orgDesciption!=null">
-                #{orgDesciption},
-            </if>
-            now(),now()
-        </trim>
+        INSERT  INTO organization(org_type,org_simple_name,org_full_name,org_admin_teacher,org_admin_num,org_admin,org_superid,org_phone,org_logo,org_location,org_descrip,createtime,modifytime)
+        VALUES (#{orgType},#{orgSimpleName},#{orgFullName},#{orgAdminTeacher},#{orgAdminNum},#{orgAdmin},#{})
     </insert>
     <update id="updateOrgInfo" parameterType="com.stgj.entity.Organization">
        update  organization

@@ -94,19 +94,19 @@
                                 <table class="table table-bordered">
                                     <tbody>
                                     <tr>
-                                        <th><input type="checkbox" name="">全选</th>
-                                        <th>标题</th>
-                                        <th>类别</th>
-                                        <th>状态</th>
-                                        <th>发稿人</th>
-                                        <th>审批意见</th>
-                                        <th>操作</th>
+
+                                        <th style="width: 40%">标题</th>
+                                        <th style="width:5%;">类别</th>
+                                        <th style="width: 10%">状态</th>
+                                        <th style="width:10%;">发稿人</th>
+                                        <th style="width:10%;">审批意见</th>
+                                        <th style="width: 25%">操作</th>
                                     </tr>
                                     </tbody>
                                     <tbody>
                                     <c:forEach var="news" items="${pageResult.list}">
                                         <tr>
-                                            <td><input type="checkbox" name=""></td>
+
                                             <td>${news.title}</td>
                                             <td>${news.text_type}</td>
                                             <td>
@@ -126,9 +126,9 @@
                                             <td>${news.status_info}</td>
 
                                             <td>
-                                                <a href="" class="btn btn-primary"><i class="glyphicon glyphicon-headphones">查阅</i></a>
-                                                <a href="" class="btn btn-info"><i class="fa fa-edit"></i>审批</a>
-                                                <a href="" class="btn btn-danger"><i class="glyphicon glyphicon-home"></i>删除</a>
+                                                <a href="/news/findOneByNewsId?news_id=${news.news_id}" class="btn btn-primary"><i class="glyphicon glyphicon-headphones">查阅</i></a>
+                                                <a href="/news/toUpdateOneNewsByNewsId?news_id=${news.news_id}" class="btn btn-success"><i class="fa fa-edit"></i>编辑</a>
+                                                <a href="/news/delOneNewsByNewsId?news_id=${news.news_id}" class="btn btn-danger"><i class="glyphicon glyphicon-home"></i>删除</a>
                                             </td>
                                         </tr>
                                     </c:forEach>
@@ -144,14 +144,7 @@
                     <!-- 表格结束 -->
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-1">
-                    <a href="" class="btn btn-success">一键通过</a>
-                </div>
-                <div class="col-md-1">
-                    <a href="" class="btn btn-danger">一键删除</a>
-                </div>
-            </div>
+
             <div class="row">
                 <div class="col-md-offset-8">
 
@@ -255,7 +248,13 @@
 <!-- CUSTOM SCRIPTS -->
 <script src="assets/js/custom.js"></script>
 <!-- myjs -->
+<script type="text/javascript">
+    $(function(){
+        $("th").css("text-align","center");
+       // $("td").css("text-align","center");
 
+    })
+</script>
 
 
 

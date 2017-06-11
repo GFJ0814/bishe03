@@ -22,7 +22,10 @@ public class Util {
     public static Result<String> uploadFile(MultipartFile file, HttpServletRequest request) {
         Result<String> result = new Result<String>();
         result.setErrorMsg("文件上传失败");
-        String fileRealName = file.getOriginalFilename();                   //获得原始文件名;
+        String fileRealName = file.getOriginalFilename();
+        if(fileRealName==null||"".equals(fileRealName)){
+            return result;
+        }
         int pointIndex = fileRealName.indexOf(".");                        //点号的位置
         String fileSuffix = fileRealName.substring(pointIndex);             //截取文件后缀
         UUID FileId = UUID.randomUUID();                        //生成文件的前缀包含连字符

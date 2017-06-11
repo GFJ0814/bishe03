@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: acer
@@ -50,50 +51,76 @@
 
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <form role="form">
+                                <form role="form" action="/news/addNews" method="post" enctype="multipart/form-data" >
                                     <table class="table table-bordered">
                                         <tbody>
                                         <div class="form-group">
                                             <tr>
-                                                <td> <label>资讯标题</label></td>
-                                                <td> <input class="form-control" type="text">
-
+                                                <td style="width: 10%"> <label>资讯标题</label></td>
+                                                <td> <input class="form-control" type="text" name="title" value="${news==null?"":news.title}">
                                                 </td>
                                             </tr>
                                         </div>
+                                        <c:choose>
+                                            <c:when test="${news!=null}">
+                                                <input type="hidden" name="news_id" value="${news.news_id}" >
+                                            </c:when>
+                                        </c:choose>
+
                                         <div class="form-group">
                                             <tr>
-                                                <td> <label>资讯类别</label></td>
-                                                <td><select class="form-control">
-                                                    <option>-选择类别-</option>
-                                                    <option>新闻</option>
-                                                    <option>活动</option>
-                                                    <option>通知</option>
+                                                <td style="width: 10%"> <label>资讯类别</label></td>
+                                                <td><select class="form-control" name="text_type">
+                                                      <c:choose>
+                                                          <c:when test="${news==null}">
+                                                              <option>-选择类别-</option>
+                                                              <option value="新闻" >新闻</option>
+                                                              <option value="活动">活动</option>
+                                                              <option value="通知">通知</option>
+                                                          </c:when>
+                                                          <c:when test="${news!=null}">
+                                                              <option>-选择类别-</option>
+                                                              <option value="新闻" ${news.text_type=="新闻"?"selected":""}>新闻</option>
+                                                              <option value="活动" ${news.text_type=="活动"?"selected":""}>活动</option>
+                                                              <option value="通知" ${news.text_type=="通知"?"selected":""}>通知</option>
+                                                          </c:when>
+                                                      </c:choose>
+
+
                                                 </select>
-
                                                 </td>
                                             </tr>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group" >
                                             <tr>
-                                                <td> <label>摘要</label></td>
+                                                <td style="width:10%;"> <label>首页图片</label></td>
                                                 <td>
-                                                     <textarea name="abArticle" id="" cols="15" rows="4" class="form-control"></textarea>
+                                                    <input type="file" name="file" class="form-control">
                                                 </td>
                                             </tr>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group" >
+                                            <tr>
+                                                <td style="width: 10%"> <label>摘要</label></td>
+                                                <td>
+                                                     <textarea name="abArticle" id="" cols="15" rows="4" class="form-control">${news==null?"":news.abArticle}</textarea>
+                                                </td>
+                                            </tr>
+                                        </div>
+
+                                        <div class="form-group" >
                                             <tr >
-                                                <td><label>正文</label></td>
+                                                <td style="width: 10%"><label>正文</label></td>
                                                 <td>
-                                                    <div id="summernote"></div>
+                                                    <div id="summernote">${news==null?"":news.article}</div>
                                                 </td>
 
                                             </tr>
                                         </div>
+                                        <input type="hidden" name="article" id="article"/>
                                         <div class="form-group">
                                             <tr>
-                                                <td colspan="2"><button class="btn btn-success" >发布</button>
+                                                <td colspan="2"><button class="btn btn-success" type="submit" id="submit">发布</button>
                                                     <button class="btn btn-info">返回</button>
                                                 </td>
                                             </tr>
@@ -102,7 +129,7 @@
                                         </tbody>
                                     </table>
                                 </form>
-                                <div><button class="button btn-success" id="publish">test</button></div>
+
                             </div>
 
 
@@ -143,9 +170,9 @@
 <script >
     $(document).ready(function() {
 
-        $("#publish").click(function(){
+        $("#submit").click(function(){
             var result = $('#summernote').summernote('code');
-            alert(result);
+            $("#article").val(result);
         })
 
         $('#summernote').each(function() {

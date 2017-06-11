@@ -4,7 +4,7 @@
 <mapper namespace="com.stgj.dao.NewsDao">
 
     <sql id="Base_Column_List">
-        news_id,publisher,title,abArticle,article,text_type,status_info,status,createTime,modifyTime
+        news_id,publisher,news_photo,title,abArticle,article,text_type,status_info,status,createTime,modifyTime
     </sql>
 
     <select id="findAllNewsByPage" resultType="com.stgj.entity.News">
@@ -15,10 +15,15 @@
     <select id="getAllNewsCount" resultType="int">
         SELECT count(*)  FROM  news
     </select>
+    
+    <select id="findOneByNewsId" resultType="com.stgj.entity.News">
+        SELECT  <include refid="Base_Column_List"></include>
+        FROM  news WHERE  news_id = #{newsId}
+    </select>
 
     <insert id="addNews" parameterType="com.stgj.entity.News">
-        INSERT  INTO news(publisher,title,abArticle,article,text_type,status_info,status,createTime,modifyTime)
-        VALUES (#{publisher},#{title},#{abArticle},#{article},#{text_type},#{status_info},#{status},now(),now())
+        INSERT  INTO news(publisher,news_photo,title,abArticle,article,text_type,status_info,status,createTime,modifyTime)
+        VALUES (#{publisher},#{news_photo},#{title},#{abArticle},#{article},#{text_type},#{status_info},0,now(),now())
     </insert>
 
 
@@ -28,19 +33,22 @@
             <if test="publisher!=null">
                 publisher = #{publisher},
             </if>
+            <if test="news_photo!=null">
+                news_photo = #{news_photo},
+            </if>
             <if test="title!=null">
                 title = #{title},
             </if>
             <if test="abArticle!=null">
                 abArticle = #{abArticle},
             </if>
-            <if test="article！=null">
+            <if test="article!=null">
                 article = #{article},
             </if>
             <if test="text_type!=null">
                 text_type = #{text_type},
             </if>
-            <if test="status_info！=null">
+            <if test="status_info!=null">
                 status_info = #{status_info},
             </if>
             <if test="status!=null">

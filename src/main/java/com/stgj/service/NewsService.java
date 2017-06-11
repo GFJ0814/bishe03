@@ -21,4 +21,6 @@ public interface NewsService {
     int getAllNewsAccount();
     //分页查询所有数据
     List<News> findAllNewsByPage(Integer pageStart);
+    //根据id查询单条资讯
+    News findOneByNewsId(Integer newsId);
 }

@@ -140,8 +140,7 @@
 <script src="../assets/js/jquery.metisMenu.js"></script>
 <!-- CUSTOM SCRIPTS -->
 <script src="../assets/js/custom.js"></script>
-<!-- myjs -->
-<script src="../assets/myjs/page.js"></script>
+
 
 </body>
 </html>

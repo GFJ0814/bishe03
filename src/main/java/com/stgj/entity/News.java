@@ -11,6 +11,7 @@ import lombok.Data;
 public class News extends BaseEntity {
     private Integer news_id;
     private String publisher;
+    private String news_photo;
     private String title;
     private String abArticle;
     private String article;

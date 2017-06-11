@@ -24,5 +24,7 @@ public interface NewsDao {
 
     List<News>  findAllNewsByPage(@Param("pageStart") Integer pageStart);
 
+    News findOneByNewsId(@Param("newsId") Integer newsId);
+
 
 }

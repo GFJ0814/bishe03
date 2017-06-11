@@ -36,6 +36,9 @@ public class StudentController {
     @RequestMapping("findOneStuByUserName")
     public String findOneStuByUserName( ModelMap model,HttpServletRequest request) {
         User user = (User)request.getSession().getAttribute("user");
+        if(user==null){
+            return "index";
+        }
          student=studentService.findByUserName(user.getUserName());
          model.addAttribute("student",student);
          request.getSession().setAttribute("stuInfo",student);
@@ -45,7 +48,7 @@ public class StudentController {
 
     @RequestMapping("addOrUpdateStuInfo")
     public String addOrUpdateStuInfo(MultipartFile file, Student student1, HttpServletRequest request,ModelMap model) {
-        if(!file.isEmpty()){
+        if(file!=null&&(!file.isEmpty())){
             Result<String> result = Util.uploadFile(file, request);
             if(!result.isSuccess()){
                 model.addAttribute("errorMsg",result.getErrorMsg());

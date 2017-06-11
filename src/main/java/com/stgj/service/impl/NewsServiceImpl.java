@@ -40,4 +40,8 @@ public class NewsServiceImpl implements NewsService {
     public List<News> findAllNewsByPage(Integer pageStart) {
         return newsDao.findAllNewsByPage(pageStart);
     }
+
+    public News findOneByNewsId(Integer newsId) {
+        return newsDao.findOneByNewsId(newsId);
+    }
 }
