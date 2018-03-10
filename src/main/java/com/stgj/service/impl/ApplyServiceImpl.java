@@ -18,7 +18,7 @@ import java.util.List;
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class ApplyServiceImpl implements ApplyService{
-     @Autowired
+    @Autowired
     ApplyDao applyDao;
 
     public List<Apply> findAllByPage(Integer pageStart) {

@@ -50,7 +50,7 @@
 
     <insert id="addOrgInfo" parameterType="com.stgj.entity.Organization">
         INSERT  INTO organization(org_type,org_simple_name,org_full_name,org_admin_teacher,org_admin_num,org_admin,org_superid,org_phone,org_logo,org_location,org_descrip,createtime,modifytime)
-        VALUES (#{orgType},#{orgSimpleName},#{orgFullName},#{orgAdminTeacher},#{orgAdminNum},#{orgAdmin},#{})
+        VALUES (#{orgType},#{orgSimpleName},#{orgFullName},#{orgAdminTeacher},#{orgAdminNum},#{orgAdmin},#{orgSuperId},#{orgPhone},#{orgLogo},#{orgDesciption},now(),now())
     </insert>
     <update id="updateOrgInfo" parameterType="com.stgj.entity.Organization">
        update  organization

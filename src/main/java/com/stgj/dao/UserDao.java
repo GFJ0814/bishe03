@@ -24,7 +24,7 @@ public interface UserDao {
      * @param passWord
      * @return
      */
-   // List<User> findByUserNameAndPwd(@Param("userName") String userName,@Param("passWord") String passWord);
+    List<User> findByUserNameAndPwd(@Param("userName") String userName,@Param("passWord") String passWord);
 
     /**
      * 查询所有用户
