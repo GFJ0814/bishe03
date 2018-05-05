@@ -114,7 +114,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">社团组织管理系统</a>
+            <a class="navbar-brand" href="index.html">助学贷款管理系统</a>
         </div>
 
         <div class="header-right">
@@ -391,7 +391,7 @@
 <!-- /. WRAPPER  -->
 
 <div id="footer-sec">
-    &copy; 2017 高校社团组织管理系统
+    &copy; 2017 高校助学贷款管理系统
 </div>
 <!-- /. FOOTER  -->
 <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->

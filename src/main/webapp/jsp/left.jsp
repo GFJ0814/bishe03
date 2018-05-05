@@ -27,7 +27,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">社团组织管理系统</a>
+    <a class="navbar-brand" href="#">助学贷款管理系统</a>
 </div>
 <div class="header-right">
 

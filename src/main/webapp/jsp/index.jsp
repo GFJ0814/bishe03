@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%--
 <!DOCTYPE html>
@@ -73,7 +74,7 @@
 <div class="container">
     <div class="row text-center " style="padding-top:100px;">
         <div class="col-md-12">
-            <h2 class="form-heading">高校社团组织管理系统</h2>
+            <h2 class="form-heading">高校学生助学贷款管理系统</h2>
         </div>
     </div>
     <div class="row ">

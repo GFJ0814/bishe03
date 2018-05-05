@@ -45,7 +45,7 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>高校社团组织管理系统首页</title>
+    <title>高校助学贷款管理系统首页</title>
 
     <!--360 browser -->
     <meta name="renderer" content="webkit">
