@@ -88,7 +88,7 @@ public class UserController {
     public String logOut(HttpServletRequest request) {
         request.getSession().setAttribute("user", null);
         request.getSession().invalidate();
-        return "fontIndex";
+        return "index";
     }
 
     //修改密码

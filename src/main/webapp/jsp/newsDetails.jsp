@@ -131,7 +131,7 @@
 <!-- /. WRAPPER  -->
 
 <div id="footer-sec">
-    &copy; 2017 高校社团组织管理系统
+    &copy; 2017 高校助学贷款管理系统
 </div>
 <!-- /. FOOTER  -->
 <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->

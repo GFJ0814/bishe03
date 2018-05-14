@@ -32,7 +32,7 @@ body {
     color: #000;
     font-weight: 800;
     padding-bottom: 20px;
-    border-bottom: 2px solid #00CA79;
+    border-bottom: 2px solid #dle2db;
     margin-bottom: 10px;
 }
 
@@ -42,7 +42,7 @@ body {
     padding-bottom: 20px;
     font-style:italic;
     margin-bottom:30px;
-    border-bottom:1px dashed #00CA79;
+    border-bottom:1px dashed #dle2db;
 
 }
 
@@ -60,7 +60,7 @@ body {
 
 .navbar-cls-top .navbar-brand {
     color: #fff;
-    background: #202020;
+    background: #a9c5ce;
     width: 260px;
     text-align: center;
     height: 75px;
@@ -102,7 +102,7 @@ body {
     }
 
 .active-menu {
-    background-color: #00CA79!important;
+    background-color: #dle2db!important;
 }
 .active-menu-top {
     background-color: #000!important;
@@ -177,8 +177,8 @@ body {
     background-color: #202020;
 }
 
-.navbar-cls-top {
-    background: #00CA79;
+.navbar-cls-top{
+    background:#ece36a;
     border-bottom: none;
 }
 
@@ -192,7 +192,7 @@ body {
 }
 
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-    background-color: #00CA79;
+    background-color: #dle2db;
 }
 
 .navbar-default .navbar-toggle {

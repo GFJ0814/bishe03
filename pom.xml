@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.myproject</groupId>
-  <artifactId>bishe02</artifactId>
+  <artifactId>bishe03</artifactId>
   <packaging>war</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>bishe02 Maven Webapp</name>
+  <version>1.01-SNAPSHOT</version>
+  <name>bishe03 Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
 

@@ -13,7 +13,6 @@ $(function(){
         var phone=$("tr:eq(8)").find("td:eq(0)>span").text();
         var QQ=$("tr:eq(9)").find("td:eq(0)>span").text();
         var perInfo=$("tr:eq(10)").find("td:eq(0)>span").text();
-        alert("获得的姓名是:"+name);
         var colleges=new Array("信息与计算机工程学院","园林学院");
         var professions=new Array("软件工程","信息管理与信息系统","计算机科学与技术");
         var selectCollege=getSelect(colleges,stuCollege,"stuCollege");

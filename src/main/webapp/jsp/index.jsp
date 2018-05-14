@@ -73,7 +73,7 @@
 <div class="container">
     <div class="row text-center " style="padding-top:100px;">
         <div class="col-md-12">
-            <h2 class="form-heading">高校社团组织管理系统</h2>
+            <h2 class="form-heading">助学贷款管理系统</h2>
         </div>
     </div>
     <div class="row ">
@@ -97,13 +97,13 @@
                     <div class="form-group">
 
                                             <span class="pull-right">
-                                                   <a href="index.html" >忘记密码? </a>
+                                                   <a href="../html/index.html" >忘记密码? </a>
                                             </span>
                     </div>
 
                     <button type="submit" class="btn btn-success ">登录</button>
                     <hr />
-                    还没注册 ? <a href="register.jsp" >点击这里</a> 或回到 <a href="#">首页</a>
+                    还没注册 ? <a href="../jsp/register.jsp" >点击这里</a> 或回到 <a href="../jsp/fontIndex.jsp">首页</a>
                 </form>
             </div>
 
