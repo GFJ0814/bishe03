@@ -20,10 +20,11 @@
         <result column="stu_phone" property="stuPhone"></result>
         <result column="createtime" property="createTime"></result>
         <result column="modifytime" property="modifyTime"></result>
+        <result column="home_info" property="homeInfo"></result>
     </resultMap>
 
     <sql id="Base_Column_List">
-        stu_id,user_name,stu_num,stu_name,stu_age,stu_sex,stu_profession,stu_college,stu_address,stu_qq,stu_email,stu_photo,stu_hobbies,stu_recommend,stu_phone,createtime,modifytime
+        stu_id,user_name,stu_num,stu_name,stu_age,stu_sex,stu_profession,stu_college,stu_address,stu_qq,stu_email,stu_photo,stu_hobbies,stu_recommend,stu_phone,home_info,createtime,modifytime
     </sql>
 
     <select id="findById" parameterType="int" resultMap="studentMap">
@@ -88,6 +89,9 @@
             <if test="stuPhone!=null">
                 stu_phone,
             </if>
+            <if test="homeInfo!=null">
+                home_info,
+            </if>
             createtime,modifytime
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -129,9 +133,11 @@
             </if>
             <if test="stuRecommend!=null">
                 #{stuRecommend},
-            </if>
-            <if test="stuPhone!=null">
+            </if> <if test="stuPhone!=null">
                 #{stuPhone},
+            </if>
+            <if test="homeInfo!=null">
+                #{homeInfo},
             </if>
             now(),now()
         </trim>
@@ -181,6 +187,8 @@
             </if>
             <if test="stuPhone!=null">
                 stu_phone = #{stuPhone},
+            </if><if test="homeInfo!=null">
+                home_info = #{homeInfo},
             </if>
             <if test="createTime != null">
                 createTime = #{createTime} ,

@@ -1,5 +1,6 @@
 import com.stgj.entity.Student;
 import com.stgj.service.StudentService;
+import com.stgj.vo.HomeInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,12 @@ public class StudentServiceTest {
     @Test
     public void testAddStudent(){
         Student student = new Student();
-        student.setStuName("曹操");
+        student.setStuName("曹阿瞒");
         student.setStuNum("20134497");
+        HomeInfo home = new HomeInfo();
+        home.setFatherName("曹松");
+        home.setMotherName("不知道");
+        student.setHomeInfo(home.toString());
         studentService.saveStuInfo(student);
     }
 

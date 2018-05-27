@@ -23,6 +23,7 @@ public class Student extends BaseEntity{
     private String stuHobbies;          //爱好
     private String stuRecommend;        //个人评价
     private String stuPhone;            //电话号
+    private String  homeInfo;           //家庭信息
 
 
 

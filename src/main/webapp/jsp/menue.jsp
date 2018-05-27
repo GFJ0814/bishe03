@@ -24,7 +24,7 @@
     <ul class="nav" id="main-menu">
         <li>
             <div class="user-img-div">
-                <img src="../assets/img/user.png" class="img-thumbnail" />
+                <img src="../assets/img/user.jpg" class="img-thumbnail" />
 
                 <div class="inner-text" align="center">
                     <font style="font-size: 21px;font-family: '华文楷体'">早上好，${sessionScope.user.userName}</font>

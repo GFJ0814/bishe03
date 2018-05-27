@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stgj.dao.LoanDao">
+    <sql id="Base_column_list">
+        id,stu_id,user_id,loan_amount,loan_term,status,loan_reason,createTime,modifyTime
+    </sql>
+    <select id="findLoanById" parameterType="int" resultType="com.stgj.entity.Loan">
+        SELECT <include refid="Base_column_list"></include>
+        FROM loan where id = ${id};
+    </select>
+    <insert id="addLoan" parameterType="com.stgj.entity.Loan">
+        INSERT INTO loan(stu_id,user_id,loan_amount,loan_term,status,loan_reason,createTime,modifyTime)
+        VALUES (#{stuId},#{userId},#{loanAmount},#{loanTerm},0,#{loanReason},now(),now())
+    </insert>
+    <delete id="delLoan" parameterType="int">
+        DELETE  FROM  loan where id = ${id}
+    </delete>
+    <update id="updateLoan" parameterType="com.stgj.entity.Loan">
+        UPDATE loan
+        <set>
+            <if test="stu_id!=null">
+                stu_id=#{stu_id},
+            </if>
+            <if test="user_id!=null">
+                user_id=#{user_id},
+            </if>
+            <if test="loan_amount!=null">
+                loan_amount=#{loan_amount},
+            </if>
+            <if test="loan_term!=null">
+                loan_term=#{loan_term},
+            </if>
+            <if test="status!=null">
+                status=#{status},
+            </if>
+            <if test="loan_reason!=null">
+                loan_reason = #{loan_reason},
+            </if>
+            modifyTime = now()
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <select id="findAllLoans" resultType="com.stgj.entity.Loan">
+        SELECT <include refid="Base_column_list"></include>
+        from loan
+    </select>
+
+    <select id="findLoanByPage" parameterType="int" resultType="com.stgj.entity.Loan">
+        SELECT <include refid="Base_column_list"></include>
+        FROM loan limit ${pageStart} ,3
+    </select>
+
+    <select id="getLoanNum" resultType="int">
+        SELECT count(1)  FROM loan
+    </select>
+
+</mapper>
