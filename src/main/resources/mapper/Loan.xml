@@ -3,15 +3,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.stgj.dao.LoanDao">
     <sql id="Base_column_list">
-        id,stu_id,user_id,loan_amount,loan_term,status,loan_reason,createTime,modifyTime
+        id,stu_id,user_id,loan_amount,loan_term,result_status,process_status,current_node,loan_reason,note,createTime,modifyTime
     </sql>
     <select id="findLoanById" parameterType="int" resultType="com.stgj.entity.Loan">
         SELECT <include refid="Base_column_list"></include>
         FROM loan where id = ${id};
     </select>
     <insert id="addLoan" parameterType="com.stgj.entity.Loan">
-        INSERT INTO loan(stu_id,user_id,loan_amount,loan_term,status,loan_reason,createTime,modifyTime)
-        VALUES (#{stuId},#{userId},#{loanAmount},#{loanTerm},0,#{loanReason},now(),now())
+        INSERT INTO loan(stu_id,user_id,loan_amount,loan_term,result_status,process_status,current_node,loan_reason,note,createTime,modifyTime)
+        VALUES (#{stu_id},#{user_id},#{loan_amount},#{loan_term},0,0,0,#{loan_reason},#{note},now(),now())
     </insert>
     <delete id="delLoan" parameterType="int">
         DELETE  FROM  loan where id = ${id}
@@ -31,11 +31,20 @@
             <if test="loan_term!=null">
                 loan_term=#{loan_term},
             </if>
-            <if test="status!=null">
-                status=#{status},
+            <if test="result_status!=null">
+                result_status=#{result_status},
+            </if>
+            <if test="process_status!=null">
+                process_status=#{process_status},
+            </if>
+            <if test="current_node!=null">
+                current_node=#{current_node},
             </if>
             <if test="loan_reason!=null">
                 loan_reason = #{loan_reason},
+            </if>
+            <if test="note!=null">
+                note=#{note},
             </if>
             modifyTime = now()
         </set>
@@ -49,7 +58,7 @@
 
     <select id="findLoanByPage" parameterType="int" resultType="com.stgj.entity.Loan">
         SELECT <include refid="Base_column_list"></include>
-        FROM loan limit ${pageStart} ,3
+        FROM loan limit ${pageStart} ,5
     </select>
 
     <select id="getLoanNum" resultType="int">

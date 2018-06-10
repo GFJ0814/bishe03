@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: acer
@@ -14,7 +15,7 @@
     <title>我的申请</title>
 
     <!-- BOOTSTRAP STYLES-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
     <link href="${pageContext.request.contextPath}/assets/css/font-awesome.css" rel="stylesheet" />
     <!--CUSTOM BASIC STYLES-->
@@ -104,45 +105,28 @@
                                         <th>申请时间</th>
                                         <th>操作</th>
                                     </tr>
-                                    </tbody>
-                                    <tbody>
 
-                                    <tr >
-                                        <td>3</td>
-                                        <td>张三</td>
-                                        <td>评优加分</td>
-                                        <td><a href="#" class="btn btn-success">已通过</a></td>
-                                        <td>同意</td>
-                                        <td>2017-5-19</td>
+                                    <c:forEach var="apply" items="${pageResult.list}">
+                                        <tr >
+                                            <td>${apply.apply_type}</td>
+                                            <td>${apply.applyer_name}</td>
+                                            <td>${apply.apply_more}</td>
+                                            <td>
+                                                <c:choose>
+                                                    <c:when test="${apply.check_status==0}"><a href="#" class="btn btn-danger ">未审批</a></c:when>
+                                                    <c:when test="${apply.check_status==1}"><a href="#" class="btn btn-success">审批通过</a></c:when>
+                                                    <c:when test="${apply.check_status==2}"> <a href="#" class="btn btn-warning">被驳回</a></a></c:when>
+                                                </c:choose>
+                                            </td>
+                                            <td>${apply.note}</td>
+                                            <td>${apply.modifyTime}</td>
 
-                                        <td><a href="" class="btn btn-info"><i class="fa fa-edit"></i>修改</a>
-                                            <a href="" class="btn btn-danger"><i class="glyphicon glyphicon-home"></i>删除</a>
-                                        </td>
-                                    </tr>
-                                    <tr >
-                                        <td>4</td>
-                                        <td>张三</td>
-                                        <td>评优加分</td>
-                                        <td><a href="#" class="btn btn-danger">未审批</a></td>
-                                        <td>无</td>
-                                        <td>2017-5-19</td>
+                                            <td><a href="" class="btn btn-info"><i class="fa fa-edit"></i>修改</a>
+                                                <a href="" class="btn btn-danger"><i class="glyphicon glyphicon-home"></i>删除</a>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
 
-                                        <td><a href="" class="btn btn-info"><i class="fa fa-edit"></i>修改</a>
-                                            <a href="" class="btn btn-danger"><i class="glyphicon glyphicon-home"></i>删除</a>
-                                        </td>
-                                    </tr>
-                                    <tr >
-                                        <td>5</td>
-                                        <td>张三</td>
-                                        <td>评优加分</td>
-                                        <td><a href="#" class="btn btn-warning">被驳回</a></td>
-                                        <td>名额有限，再努力</td>
-                                        <td>2017-5-19</td>
-
-                                        <td><a href="" class="btn btn-info"><i class="fa fa-edit"></i>修改</a>
-                                            <a href="" class="btn btn-danger"><i class="glyphicon glyphicon-home"></i>删除</a>
-                                        </td>
-                                    </tr>
 
                                     </tbody>
                                 </table>

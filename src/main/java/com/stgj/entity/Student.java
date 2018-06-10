@@ -24,6 +24,8 @@ public class Student extends BaseEntity{
     private String stuRecommend;        //个人评价
     private String stuPhone;            //电话号
     private String  homeInfo;           //家庭信息
+    private String bankcardNo;         //银行卡号
+    private String idcardNo;           //身份证号
 
 
 

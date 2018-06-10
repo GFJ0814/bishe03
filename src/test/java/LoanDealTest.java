@@ -31,7 +31,7 @@ public class LoanDealTest {
         Loan loan  = new Loan();
         for(int i =0;i<5;i++){
             loan.setLoan_reason("困难啊");
-            loan.setStatus(1);
+            loan.setResult_status(1);
             loanService.addLoan(loan);
         }
     }

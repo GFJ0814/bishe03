@@ -114,19 +114,19 @@
                                         <input class="form-control" type="password" name="rePwd">
                                     </div>
                                     <div class="form-group">
-                                        <label class="font">是否已加入社团或组织 </label>
+                                        <label class="font">是否要关联教务系统 </label>
                                         <input type="radio" name="accept" value="1">是
                                         <input type="radio" name="accept" value="0" checked="true">否
                                     </div>
                                     <div id="isAccept">
                                         <div class="form-group" >
-                                            <label>学号</label>
+                                            <label>教务系统账号</label>
                                             <input class="form-control" type="text"  name="stuName">
                                             <p class="help-block"></p>
                                         </div>
                                         <div class="form-group">
-                                            <label>姓名</label>
-                                            <input class="form-control" type="text" name="stuNum">
+                                            <label>教务系统密码</label>
+                                            <input class="form-control" type="password" name="stuNum">
                                             <p class="help-block"></p>
                                         </div>
                                     </div>

@@ -21,10 +21,12 @@
         <result column="createtime" property="createTime"></result>
         <result column="modifytime" property="modifyTime"></result>
         <result column="home_info" property="homeInfo"></result>
+        <result column="bankcardNo" property="bankcardNo"></result>
+        <result column="idcardNo" property="idcardNo"></result>
     </resultMap>
 
     <sql id="Base_Column_List">
-        stu_id,user_name,stu_num,stu_name,stu_age,stu_sex,stu_profession,stu_college,stu_address,stu_qq,stu_email,stu_photo,stu_hobbies,stu_recommend,stu_phone,home_info,createtime,modifytime
+        stu_id,user_name,stu_num,stu_name,stu_age,stu_sex,stu_profession,stu_college,stu_address,stu_qq,stu_email,stu_photo,stu_hobbies,stu_recommend,stu_phone,home_info,bankcardNo,idcardNo,createtime,modifytime
     </sql>
 
     <select id="findById" parameterType="int" resultMap="studentMap">
@@ -92,6 +94,12 @@
             <if test="homeInfo!=null">
                 home_info,
             </if>
+            <if test="bankcardNo!=null">
+                bankcardNo,
+            </if>
+            <if test="idcardNo!=null">
+                idcardNo,
+            </if>
             createtime,modifytime
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -138,6 +146,12 @@
             </if>
             <if test="homeInfo!=null">
                 #{homeInfo},
+            </if>
+            <if test="bankcardNo!=null">
+                #{bankcardNo},
+            </if>
+            <if test="idcardNo!=null">
+                #{idcardNo},
             </if>
             now(),now()
         </trim>
@@ -189,6 +203,12 @@
                 stu_phone = #{stuPhone},
             </if><if test="homeInfo!=null">
                 home_info = #{homeInfo},
+            </if>
+            <if test="bankcardNo!=null">
+                bankcardNo=#{bankcardNo},
+            </if>
+            <if test="idcardNo!=null">
+                idcardNo=#{idcardNo},
             </if>
             <if test="createTime != null">
                 createTime = #{createTime} ,

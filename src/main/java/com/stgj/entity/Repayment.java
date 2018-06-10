@@ -12,7 +12,7 @@ public class Repayment  extends  BaseEntity{
     private Integer id;
     private Integer loan_id;
     private Integer stu_id;
-    private Double principle;
-    private Double interest;
+    private Double principle;//本金
+    private Double interest;//利息
     private Integer status;
 }

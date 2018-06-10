@@ -3,10 +3,48 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.stgj.dao.RepaymentDao">
     <sql id="Base_clolumn_list">
+      id,loan_id,stu_id,user_id,principle,interest,status,createTime,modifyTime
     </sql>
     <select id="findOneRepayById" parameterType="int">
       SELECT <include refid="Base_clolumn_list"></include>
         FROM  repayment WHERE  id = ${id}
+    </select>
+    <insert id="addOneRepayment" parameterType="com.stgj.entity.Repayment">
+        INSERT  into repayment(loan_id,stu_id,user_id,principle,interest,status,createTime,modifyTime)
+        VALUES(#{loan_id},#{stu_id},#{user_id},#{principle},#{interest},#{status},now(),now())
+    </insert>
+    <update id="updateOneRepayment" parameterType="com.stgj.entity.Repayment">
+        update repayment
+        <set>
+            <if test="loan_id!=null">
+                loan_id=#{loan_id},
+            </if>
+            <if test="stu_id!=null">
+                stu_id=#{stu_id},
+            </if>
+            <if test="user_id!=null">
+                user_id=#{user_id},
+            </if>
+            <if test="principle!=null">
+                principle=#{principle},
+            </if>
+            <if test="interest!=null">
+                interest=#{interest},
+            </if>
+            <if test="status!=null">
+                status=#{status},
+            </if>
+            modifyTime = now()
+        </set>
+        WHERE  id =#{id}
+    </update>
+
+    <delete id="delOneRepaymentById" parameterType="int">
+        DELETE FROM repayment where id =${id}
+    </delete>
+
+    <select id="findAllRepayments">
+        SELECT * FROM repayment ORDER  by createTime DESC
     </select>
 
 

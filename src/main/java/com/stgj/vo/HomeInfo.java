@@ -24,6 +24,7 @@ public class HomeInfo {
     private String homeAddress;
     private String homePhone;
     private String youbian;
+    private String jingjilaiyuan;
     public String toString(){
         return  JSON.toJSONString(this);
     }

@@ -78,10 +78,7 @@
                     <a href="../jsp/newsPublish.jsp"><i class="fa fa-anchor"></i>发布资讯</a>
                 </li>
                 <li>
-                    <a href="/asset/showAllAssets"><i class="fa fa-flash "></i>资产管理</a>
-                </li>
-                <li>
-                    <a href="/shenqing/showAllShenqings"><i class="fa fa-key "></i>我的申请</a>
+                    <a href="/apply/showAllApplysByPage"><i class="fa fa-key "></i>我的申请</a>
                 </li>
                 <li>
                     <a href="/shenpi/findAllShenpi"><i class="fa fa-anchor "></i>我的审批</a>
@@ -91,40 +88,38 @@
             </ul>
         </li>
         <li>
-            <a href="#"><i class="fa fa-bicycle "></i>机构管理<span class="fa arrow"></span></a>
+            <a href="#"><i class="fa fa-bicycle "></i>助贷管理<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
 
                 <li>
-                    <a href="/organization/findAllOrgs"><i class="fa fa-desktop "></i>组织管理 </a>
+                    <a href="/loan/findAllLoansByPage"><i class="fa fa-desktop "></i>贷款管理 </a>
                 </li>
                 <li>
-                    <a href="form-advance.html"><i class="fa fa-code "></i>部门管理</a>
+                    <a href="../jsp/daikuanshenqing.jsp"><i class="fa fa-comments-o "></i>贷款申请</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-bicycle "></i>招新</a>
+                    <a href="/repayment/findAllRepayment"><i class="fa fa-code "></i>还款管理</a>
+                </li>
+
+                <li>
+                    <a href="/yuqiguanli/findAllYuqiguanliInfo"><i class="fa fa-anchor "></i>逾期管理</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-flask "></i>人事管理</a>
+                    <a href="/blacklist/findAllBlacklist"><i class="fa fa-coffee"></i>黑名单管理</a>
                 </li>
 
 
             </ul>
         </li>
         <li>
-            <a href="#"><i class="fa fa-sitemap "></i>排班管理 <span class="fa arrow"></span></a>
+            <a href="#"><i class="fa fa-sitemap "></i>后台管理 <span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
                 <li>
-                    <a href="#"><i class="fa fa-bicycle "></i>课表管理</a>
+                    <a href="/tongji/getAllTongjiData"><i class="fa fa-flash"></i>
+                        统计报表</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-flash"></i>
-                        值班表管理</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-comments-o "></i>调班审批</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-sitemap "></i>调班申请</a>
+                    <a href="/log/getLogInfo"><i class="fa fa-comments-o "></i>日志监控</a>
                 </li>
 
             </ul>

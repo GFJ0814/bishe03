@@ -15,8 +15,11 @@ public class Loan extends BaseEntity{
     private Integer user_id;
     private Integer loan_amount;
     private Integer loan_term;
-    private Integer status;
+    private Integer result_status;
     private String  loan_reason;
+    private String process_status;
+    private Integer current_node;
+    private String note;
 
 
 }

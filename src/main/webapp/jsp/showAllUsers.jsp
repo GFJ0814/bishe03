@@ -80,7 +80,7 @@
                                     <thead>
                                     <tr>
                                         <th style="width: 10%">用户名</th>
-                                        <th style="width: 20%">是否加入社团组织</th>
+                                        <th style="width: 20%">是否关联教务处</th>
                                         <th style="width: 30%">
                                             拥有角色</th>
                                         <th style="width: 20%">创建时间</th>

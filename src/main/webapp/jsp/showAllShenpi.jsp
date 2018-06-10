@@ -95,7 +95,7 @@
                                 <table class="table table-bordered">
                                     <tbody>
                                     <tr>
-                                        <th>类别</th>
+                                        <th>编号</th>
                                         <th>处理人</th>
                                         <th>描述</th>
                                         <th>当前状态</th>
@@ -109,10 +109,10 @@
                                     <tr >
                                         <td>3</td>
                                         <td>张三</td>
-                                        <td>评优加分</td>
+                                        <td>贷款-6000元-1年</td>
                                         <td><a href="#" class="btn btn-success">已通过</a></td>
                                         <td>同意</td>
-                                        <td>90 Orders To Process</td>
+                                        <td>2018-4-22</td>
 
                                         <td><a href="" class="btn btn-info"><i class="fa fa-edit"></i>修改</a>
                                             <a href="" class="btn btn-danger"><i class="glyphicon glyphicon-home"></i>删除</a>
@@ -120,11 +120,11 @@
                                     </tr>
                                     <tr >
                                         <td>4</td>
-                                        <td>张三</td>
-                                        <td>评优加分</td>
+                                        <td>吴昊</td>
+                                        <td>贷款-12000元-2年</td>
                                         <td><a href="#" class="btn btn-danger">未审批</a></td>
                                         <td>无</td>
-                                        <td>100$ Pending Payment</td>
+                                        <td>2018-5-11</td>
 
                                         <td><a href="" class="btn btn-info"><i class="fa fa-edit"></i>修改</a>
                                             <a href="" class="btn btn-danger"><i class="glyphicon glyphicon-home"></i>删除</a>
@@ -132,11 +132,11 @@
                                     </tr>
                                     <tr >
                                         <td>5</td>
-                                        <td>张三</td>
-                                        <td>评优加分</td>
+                                        <td>牛先璐</td>
+                                        <td>贷款-6000-1年</td>
                                         <td><a href="#" class="btn btn-warning">被驳回</a></td>
-                                        <td>名额有限，再努力</td>
-                                        <td>200 Messages To Reply</td>
+                                        <td>材料不全</td>
+                                        <td>2018-5-09</td>
 
                                         <td><a href="" class="btn btn-info"><i class="fa fa-edit"></i>修改</a>
                                             <a href="" class="btn btn-danger"><i class="glyphicon glyphicon-home"></i>删除</a>
@@ -144,11 +144,11 @@
                                     </tr>
                                     <tr >
                                         <td>6</td>
-                                        <td>张三</td>
-                                        <td>评优加分</td>
+                                        <td>王权</td>
+                                        <td>贷款-18000-3年</td>
                                         <td><a href="#" class="btn btn-warning">被驳回</a></td>
-                                        <td>名额有限，再努力</td>
-                                        <td>90 Orders To Process</td>
+                                        <td>不符合贫困资质</td>
+                                        <td>2018-5-09</td>
 
                                         <td><a href="" class="btn btn-info"><i class="fa fa-edit"></i>修改</a>
                                             <a href="" class="btn btn-danger"><i class="glyphicon glyphicon-home"></i>删除</a>

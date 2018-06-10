@@ -1,6 +1,7 @@
 package com.stgj.service;
 
 import com.stgj.entity.Loan;
+import com.stgj.po.LoanPo;
 import sun.plugin.javascript.navig.LinkArray;
 
 import java.util.List;
@@ -26,6 +27,8 @@ public interface LoanService {
     List<Loan> findLoanByPage(Integer pageStart);
 
     List<Loan> findAllLoans();
+
+    List<LoanPo> getAllLoanInfoByPage(Integer pageStart);
 
 
 
